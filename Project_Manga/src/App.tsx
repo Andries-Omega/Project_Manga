@@ -1,11 +1,18 @@
-import { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Footer from "./Common/Footer/Footer";
+import Header from "./Common/Header/Header";
+import Home from "./Home/Home";
 
-function App() {
-	const [count, setCount] = useState(0);
+export default function App() {
+	return (
+		<>
+			<Header />
 
-	return <h1>I Work</h1>;
+			<Routes>
+				<Route path="/" element={<Home />} />
+			</Routes>
+
+			<Footer />
+		</>
+	);
 }
-
-export default App;
