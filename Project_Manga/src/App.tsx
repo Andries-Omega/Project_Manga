@@ -5,14 +5,15 @@ import Home from "./Home/Home";
 
 export default function App() {
 	return (
-		<>
+		<div className="">
 			<Header />
-
-			<Routes>
-				<Route path="/" element={<Home />} />
-			</Routes>
+			<div className="relative">
+				<Routes>
+					<Route path="/" element={<Home />} />
+				</Routes>
+			</div>
 
 			<Footer />
-		</>
+		</div>
 	);
 }
