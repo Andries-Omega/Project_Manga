@@ -49,26 +49,29 @@ const reduce = (
 				...state,
 				networkStatus: action.payload,
 			};
-
+		case "setManga":
+			return {
+				...state,
+				mangaData: action.payload,
+			};
 		default:
 			return state;
 	}
 };
 export default function HeadlineManga() {
 	const [state, dispatch] = useReducer(reduce, randomManga);
-	console.log(state.mangaData);
+
 	useEffect(() => {
 		getRandomManga()
 			.then((res) => {
-				dispatch({ type: "setManga", payload: res });
+				console.log(res);
+				//dispatch({ type: "setManga", payload: res });
 			})
 			.catch((err) => console.log(err));
 	});
 	return (
 		<>
-			<h1 className=" text-center text-3xl text-black">
-				Hey {state ? state.mangaData?.mangaCover_Art : "BEs"}
-			</h1>
+			<h1 className="text-3xl text-black">Hey {state.mangaData?.mangaID}</h1>
 		</>
 	);
 }
