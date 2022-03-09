@@ -7,7 +7,7 @@ export default function App() {
 	return (
 		<div className="">
 			<Header />
-			<div className="relative">
+			<div className="p-24">
 				<Routes>
 					<Route path="/" element={<Home />} />
 				</Routes>

@@ -11,7 +11,6 @@ export default function TopRouting() {
 				<div className="mr-5">
 					<SignIn />
 				</div>
-
 				<div className="mr-5">
 					<SignUp />
 				</div>
