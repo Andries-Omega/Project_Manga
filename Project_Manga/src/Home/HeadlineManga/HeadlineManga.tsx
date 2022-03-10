@@ -1,13 +1,13 @@
 import { useEffect, useReducer } from "react";
 
-enum NetworkStatus {
+export enum NetworkStatus {
 	IDLING = "Idling",
 	PENDING = "Pending",
 	FAILED = "Failed",
 	SUCCESS = "Success",
 }
 
-type IManga = {
+export type IManga = {
 	mangaID: string;
 	mangaRating: string;
 	mangaDescription: string;
@@ -17,11 +17,11 @@ type IManga = {
 	mangaArtist: string;
 	mangaCover_ArtID: string;
 };
-interface IRandomManga {
+type IRandomManga = {
 	mangaData: IManga;
 	mangaCover_ArtIMG: string;
 	networkStatus: string;
-}
+};
 
 const randomManga: IRandomManga = {
 	mangaData: {
@@ -97,18 +97,18 @@ export default function HeadlineManga() {
 					backgroundImage: `url('../../../assets/images/manga_headline.jpg')`,
 				}}
 			>
-				<div className=" bg-white w-screen h-96 bg-opacity-40"></div>
+				<div className=" bg-white w-screen h-96 bg-opacity-50"></div>
 				<div className=" flex  ">
 					<img
 						src={state.mangaCover_ArtIMG}
 						className="-mt-32 w-52 h-64 mx-10"
 					/>
 					<div className="mt-5">
-						<h1 className="text-3xl  font-mono	">
+						<h1 className="text-2xl  font-mono	">
 							{state.mangaData.mangaTitle}
 						</h1>
 						<button
-							className=" bg-blue-500 text-white mt-5 w-20 h-10 rounded-md shadow-2xl
+							className=" bg-blue-500 text-white mt-8 w-20 h-10 rounded-md shadow-2xl
 											hover:bg-blue-700 z-10"
 							onClick={() => alert("Ayo")}
 						>
@@ -131,17 +131,6 @@ const getRandomManga = async () => {
 		});
 };
 
-const getRandomMangaCover = async (mangaCoverID: string) => {
-	return await fetch(`https://api.mangadex.org/cover/${mangaCoverID}`)
-		.then((res) => res.json())
-		.then((res) => {
-			return res;
-		})
-		.catch((err) => {
-			throw new Error(err);
-		});
-};
-
 const createRandomMangaData = (randomData: any): IManga => {
 	return {
 		mangaID: randomData.data.id || "",
@@ -153,4 +142,15 @@ const createRandomMangaData = (randomData: any): IManga => {
 		mangaArtist: randomData.data.relationships[1].id || "",
 		mangaCover_ArtID: randomData.data.relationships[2].id || "",
 	};
+};
+
+const getRandomMangaCover = async (mangaCoverID: string) => {
+	return await fetch(`https://api.mangadex.org/cover/${mangaCoverID}`)
+		.then((res) => res.json())
+		.then((res) => {
+			return res;
+		})
+		.catch((err) => {
+			throw new Error(err);
+		});
 };
