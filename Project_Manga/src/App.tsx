@@ -5,9 +5,10 @@ import Home from "./Home/Home";
 
 export default function App() {
 	return (
-		<div className="">
+		<div className=" overflow-x-none">
 			<Header />
-			<div className="p-24">
+
+			<div className="pl-[65px]">
 				<Routes>
 					<Route path="/" element={<Home />} />
 				</Routes>

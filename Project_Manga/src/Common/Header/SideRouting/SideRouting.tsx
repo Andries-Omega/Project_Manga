@@ -40,12 +40,11 @@ const reducer = (
 };
 export default function SideRouting() {
 	const [state, dispatch] = useReducer(reducer, viewState);
-	console.log(state.currentPage);
 	return (
 		<div
 			className={
 				state.mouseEntered
-					? "bg-slate-200 w-52 float-left h-screen pt-5 ease-in duration-500 rounded-br-lg"
+					? "bg-slate-200 w-52 float-left h-screen pt-5 ease-in duration-500 rounded-br-lg opacity-[.94]"
 					: "bg-slate-200 w-16 float-left h-screen pt-5 ease-out duration-1000 rounded-br-lg"
 			}
 			onMouseEnter={() => {

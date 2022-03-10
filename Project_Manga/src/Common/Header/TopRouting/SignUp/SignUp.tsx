@@ -4,6 +4,7 @@ export default function SignUp() {
 			<button
 				className=" bg-blue-500 h-10 text-white w-20 rounded-md shadow-2xl
                                 hover:bg-blue-700"
+				onClick={() => alert("spot light")}
 			>
 				Sign Up
 			</button>
