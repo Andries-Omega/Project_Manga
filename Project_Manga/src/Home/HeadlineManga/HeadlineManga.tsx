@@ -75,7 +75,7 @@ export default function HeadlineManga() {
 				console.log(res);
 				getRandomMangaCover(res.mangaCover_ArtID)
 					.then((resIMG) => {
-						console.log(res);
+
 						dispatch({
 							type: "setMangaCover",
 							payload:
@@ -86,7 +86,7 @@ export default function HeadlineManga() {
 						});
 					})
 					.catch((err) => console.error(err));
-			})
+					})
 			.catch((err) => console.log(err));
 	}, []);
 	return (
@@ -100,6 +100,7 @@ export default function HeadlineManga() {
 				<div className=" bg-white w-screen h-96 bg-opacity-50"></div>
 				<div className=" flex  ">
 					<img
+					
 						src={state.mangaCover_ArtIMG}
 						className="-mt-32 w-52 h-64 mx-10"
 					/>
