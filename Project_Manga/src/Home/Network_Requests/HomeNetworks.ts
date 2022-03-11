@@ -15,6 +15,7 @@ export const solveCaptcha = async () => {
 	return await fetch("https://api.mangadex.org/captcha/solve", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({}),
 	})
 		.then((res) => res.json())
 		.then((res) => console.log(res))

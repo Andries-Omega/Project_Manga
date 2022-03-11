@@ -25,7 +25,7 @@ export default function HeadlineManga() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		solveCaptcha();
+		//solveCaptcha();
 		dispatch(setRandomNetworkStatus(NetworkStatus.PENDING));
 		getRandomManga()
 			.then((res: MangaDetails) => {
