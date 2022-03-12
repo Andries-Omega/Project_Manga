@@ -3,18 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --open",
+    
+    "dev": "vite --open --https",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
+    "fs": "^0.0.1-security",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2"
   },
   "devDependencies": {
+    "@types/node": "^17.0.21",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/react-google-recaptcha": "^2.1.5",

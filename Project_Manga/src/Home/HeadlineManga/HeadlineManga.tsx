@@ -9,10 +9,10 @@ import {
   setRandomMangaCoverIMG,
   setRandomNetworkStatus,
 } from "../Mangas_Store/HomeManga";
+
 import {
   getRandomManga,
   getRandomMangaCover,
-  solveCaptcha,
 } from "../Network_Requests/HomeNetworks";
 
 export default function HeadlineManga() {
@@ -26,31 +26,28 @@ export default function HeadlineManga() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-
     dispatch(setRandomNetworkStatus(NetworkStatus.PENDING));
     getRandomManga()
       .then((res: MangaDetails) => {
         dispatch(setRandomManga(res));
-		setTimeout(()=>{
-
-			getRandomMangaCover(res.mangaCover_ArtID)
-			  .then((resIMG) => {
-				dispatch(setRandomNetworkStatus(NetworkStatus.SUCCESS)); //Only make the network status a success after we've recieved our feedback successfully
-			
-				dispatch(
-				  setRandomMangaCoverIMG(
-					"https://uploads.mangadex.org/covers/" +
-					  res.mangaID +
-					  "/" +
-					  resIMG.data.attributes.fileName
-				  )
-				);
-			  })
-			  .catch((err) => {
-				dispatch(setRandomNetworkStatus(NetworkStatus.FAILED));
-				console.error(err);
-			  });
-		},1000)
+        setTimeout(() => {
+          getRandomMangaCover(res.mangaCover_ArtID)
+            .then((resIMG) => {
+              dispatch(setRandomNetworkStatus(NetworkStatus.SUCCESS)); //Only make the network status a success after we've recieved our feedback successfully
+              dispatch(
+                setRandomMangaCoverIMG(
+                  "https://uploads.mangadex.org/covers/" +
+                    res.mangaID +
+                    "/" +
+                    resIMG.data.attributes.fileName
+                )
+              );
+            })
+            .catch((err) => {
+              dispatch(setRandomNetworkStatus(NetworkStatus.FAILED));
+              console.error(err);
+            });
+        }, 2000);
       })
       .catch((err) => {
         dispatch(setRandomNetworkStatus(NetworkStatus.FAILED));
@@ -59,7 +56,6 @@ export default function HeadlineManga() {
   }, []);
   return (
     <div>
-
       <div
         className="bg-cover bg-center bg-no-repeat h-96 w-full"
         style={{
