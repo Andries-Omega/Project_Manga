@@ -9,7 +9,11 @@ export default function MangaCard(props: any) {
         className=" bg-no-repeat bg-cover h-96 w-full -mt-7 rounded-md shadow-2xl
         duration-500  hover:scale-110 cursor-pointer"
         style={{
-          backgroundImage: `url('${mangaDetails.mangaCover_IMG}')`,
+          backgroundImage: `url('${
+            mangaDetails.mangaCover_IMG
+              ? mangaDetails.mangaCover_IMG
+              : "../../assets/images/manga_cover_art.png"
+          }')`,
         }}
       ></div>
       <div className="pr-5">
