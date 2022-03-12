@@ -6,7 +6,8 @@ export default function MangaCard(props: any) {
   return (
     <div className="bg-white grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80">
       <div
-        className=" bg-no-repeat bg-cover h-96 w-full -mt-7 rounded-md shadow-2xl"
+        className=" bg-no-repeat bg-cover h-96 w-full -mt-7 rounded-md shadow-2xl
+        duration-500  hover:scale-110 cursor-pointer"
         style={{
           backgroundImage: `url('${mangaDetails.mangaCover_IMG}')`,
         }}
@@ -21,7 +22,7 @@ export default function MangaCard(props: any) {
         </div>
         <button
           className="w-full bg-blue-500 h-10 text-white bottom-0 inset-x-0 z-10 mt-5 rounded-sm
-                           hover:bg-blue-800"
+                           hover:bg-blue-800 hover:scale-110 duration-500"
         >
           Read
         </button>

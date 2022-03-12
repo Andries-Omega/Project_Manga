@@ -57,7 +57,8 @@ export default function HeadlineManga() {
   return (
     <div>
       <div
-        className="bg-cover bg-center bg-no-repeat h-96 w-full"
+        className="bg-cover bg-center bg-no-repeat h-96 w-full
+       "
         style={{
           backgroundImage: `url('../../../assets/images/manga_headline.jpg')`,
         }}
@@ -66,13 +67,13 @@ export default function HeadlineManga() {
         <div className=" flex  ">
           <img
             src={randomManga.mangaCover_IMG}
-            className="-mt-32 w-52 h-64 mx-10 rounded-md"
+            className="-mt-32 w-52 h-64 mx-10 rounded-md  duration-500  hover:scale-110 cursor-pointer"
           />
           <div className="mt-5">
             <h1 className="text-2xl  font-mono	">{randomManga.mangaTitle}</h1>
             <button
               className=" bg-blue-500 text-white mt-8 w-20 h-10 rounded-md shadow-2xl
-											hover:bg-blue-700 z-10"
+											hover:bg-blue-700 duration-500  hover:scale-110 cursor-pointer z-10"
               onClick={() => alert("Ayo")}
             >
               Read
