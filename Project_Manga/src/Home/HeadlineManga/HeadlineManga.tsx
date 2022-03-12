@@ -66,7 +66,7 @@ export default function HeadlineManga() {
         <div className=" flex  ">
           <img
             src={randomManga.mangaCover_IMG}
-            className="-mt-32 w-52 h-64 mx-10"
+            className="-mt-32 w-52 h-64 mx-10 rounded-md"
           />
           <div className="mt-5">
             <h1 className="text-2xl  font-mono	">{randomManga.mangaTitle}</h1>

@@ -4,9 +4,9 @@ import HeadlineManga from "./HeadlineManga/HeadlineManga";
 
 export default function Home() {
   return (
-    <>
+    <div className="z-10">
       <HeadlineManga />
       <AllManga />
-    </>
+    </div>
   );
 }
