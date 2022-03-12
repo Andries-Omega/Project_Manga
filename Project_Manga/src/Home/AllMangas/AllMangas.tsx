@@ -56,12 +56,12 @@ export default function AllManga() {
   }, []);
 
   return (
-    <div className="container pt-56 pl-11 ">
-      <div className="grid grid-cols-3 gap-10 place-content-center">
+    <div className="container pt-56 pl-11">
+      <div className="grid grid-cols-2 gap-y-32 place-content-center mb-20">
         {allMangas[allMangas.length - 1].mangaCover_IMG &&
           allMangas.map((manga: MangaDetails) => {
             return (
-              <div className="pl-8">
+              <div className="pl-8 ">
                 <MangaCard manga={manga} />
               </div>
             );
