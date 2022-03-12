@@ -32,6 +32,9 @@ export default function AllManga() {
           res.map((manga: MangaDetails, i) => {
             getRandomMangaCover(manga.mangaCover_ArtID)
               .then((results) => {
+                console.log(
+                  results.data.attributes.fileName + " " + manga.mangaTitle
+                );
                 dispatch(
                   setMangaCoverIMG({
                     index: i,
@@ -57,7 +60,11 @@ export default function AllManga() {
       <div className="grid grid-cols-3 gap-10 place-content-center">
         {allMangas[allMangas.length - 1].mangaCover_IMG &&
           allMangas.map((manga: MangaDetails) => {
-            return <MangaCard manga={manga} />;
+            return (
+              <div className="pl-8">
+                <MangaCard manga={manga} />
+              </div>
+            );
           })}
       </div>
     </div>
