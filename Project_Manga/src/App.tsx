@@ -10,10 +10,16 @@ export default function App() {
     (state: RootState) => state.globalState.darkMode
   );
   return (
-    <div className=" overflow-x-none">
+    <div>
       <Header />
 
-      <div className={darkMode ? "z-10 bg-slate-700" : "z-10 bg-white"}>
+      <div
+        className={
+          darkMode
+            ? "z-10 bg-slate-700 ease-in duration-500"
+            : "z-10 bg-white ease-in duration-500"
+        }
+      >
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>

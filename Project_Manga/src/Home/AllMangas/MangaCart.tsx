@@ -11,7 +11,7 @@ export default function MangaCard(props: any) {
     <div
       className={
         darkMode
-          ? " bg-slate-700 border-gray-400 border-2 grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80"
+          ? " bg-slate-700 border-gray-400 border-2 border-l-0 grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80"
           : "bg-white grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80"
       }
     >

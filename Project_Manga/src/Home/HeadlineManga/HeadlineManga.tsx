@@ -82,8 +82,8 @@ export default function HeadlineManga() {
         <div
           className={
             darkMode
-              ? "bg-black w-screen h-96 bg-opacity-50"
-              : " bg-white w-screen h-96 bg-opacity-50"
+              ? "bg-black w-full h-96 bg-opacity-50"
+              : " bg-white w-full h-96 bg-opacity-50"
           }
         ></div>
         <div className=" flex  ">

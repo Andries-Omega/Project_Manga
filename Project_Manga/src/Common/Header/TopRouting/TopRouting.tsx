@@ -3,6 +3,7 @@ import { RootState } from "../../../store";
 import Search from "./Search/Search";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./SignUp/SignUp";
+import StateColorManaga from "./StateManage/StateColorManaga";
 
 export default function TopRouting() {
   const darkMode = useSelector(
@@ -12,8 +13,8 @@ export default function TopRouting() {
     <div
       className={
         darkMode
-          ? "bg-gray-800 flex justify-around p-2 w-screen"
-          : "bg-slate-200 flex justify-around p-2 w-screen"
+          ? "bg-gray-800 flex justify-around p-2 w-full ease-in duration-500"
+          : "bg-slate-200 flex justify-around p-2 w-full ease-in duration-500"
       }
     >
       <img
@@ -31,6 +32,9 @@ export default function TopRouting() {
         </div>
         <div className="mr-5">
           <SignUp />
+        </div>
+        <div>
+          <StateColorManaga />
         </div>
       </div>
     </div>
