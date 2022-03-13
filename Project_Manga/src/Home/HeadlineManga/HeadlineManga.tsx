@@ -1,4 +1,6 @@
 import { useQuery } from "react-query";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 import { NetworkStatus } from "../Mangas_Store/HomeManga";
 import {
   getRandomManga,
@@ -11,7 +13,9 @@ export default function HeadlineManga() {
     getRandomManga,
     { refetchOnWindowFocus: false }
   );
-
+  const darkMode = useSelector(
+    (state: RootState) => state.globalState.darkMode
+  );
   const mangaCoverID = randomMangaData?.mangaCover_ArtID;
 
   const {
@@ -34,7 +38,15 @@ export default function HeadlineManga() {
   ) {
     return (
       <div>
-        <h1 className=" text-lg text-black text-center mt-5">Pending...</h1>
+        <h1
+          className={
+            darkMode
+              ? "text-lg text-white text-center mt-5"
+              : " text-lg text-black text-center mt-5"
+          }
+        >
+          Pending...
+        </h1>
       </div>
     );
   }
@@ -45,7 +57,13 @@ export default function HeadlineManga() {
   ) {
     return (
       <div>
-        <h1 className=" text-lg text-red-600 text-center mt-5">
+        <h1
+          className={
+            darkMode
+              ? "text-lg text-red-500 text-center mt-5"
+              : " text-lg text-red-600 text-center mt-5"
+          }
+        >
           Network Error
         </h1>
       </div>
@@ -61,7 +79,13 @@ export default function HeadlineManga() {
           backgroundImage: `url('../../../assets/images/manga_headline.jpg')`,
         }}
       >
-        <div className=" bg-white w-screen h-96 bg-opacity-50"></div>
+        <div
+          className={
+            darkMode
+              ? "bg-black w-screen h-96 bg-opacity-50"
+              : " bg-white w-screen h-96 bg-opacity-50"
+          }
+        ></div>
         <div className=" flex  ">
           <img
             src={
@@ -73,7 +97,13 @@ export default function HeadlineManga() {
             className="-mt-32 w-52 h-64 mx-10 rounded-md  duration-500  hover:scale-110 cursor-pointer"
           />
           <div className="mt-5">
-            <h1 className="text-2xl  font-mono	">
+            <h1
+              className={
+                darkMode
+                  ? "text-white text-2xl font-mono	"
+                  : "text-2xl  font-mono	"
+              }
+            >
               {randomMangaData?.mangaTitle}
             </h1>
             <button

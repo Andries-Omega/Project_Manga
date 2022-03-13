@@ -7,7 +7,7 @@ interface GlobalStore {
 
 const initialState: GlobalStore = {
   showFooter: false,
-  darkMode: false,
+  darkMode: true,
 };
 
 export const globalSlice = createSlice({

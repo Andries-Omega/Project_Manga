@@ -57,7 +57,7 @@ export default function AllManga() {
 
   return (
     <div className="container pt-56 pl-11">
-      <div className="grid grid-cols-2 gap-y-32 place-content-center mb-20">
+      <div className="grid grid-cols-2 gap-y-32 place-content-center pb-32">
         {allMangas[allMangas.length - 1].mangaCover_IMG &&
           allMangas.map((manga: MangaDetails) => (
             <div className="pl-8 ">
