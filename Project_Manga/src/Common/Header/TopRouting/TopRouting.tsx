@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store";
 import { setMobileSearch } from "../../GlobalStateStore/GlobaStore";
+import BurgerMenu from "./MobileBurger/BurgerMenu";
 import Search from "./Search/Search";
 import SignIn from "./SignIn/SignIn";
 import SignUp from "./SignUp/SignUp";
@@ -57,7 +58,7 @@ export default function TopRouting() {
           <button
             className={
               darkMode
-                ? "bg-slate-200 w-10 h-10 text-white"
+                ? "bg-gray-800 w-10 h-10 text-white"
                 : " bg-slate-200 w-10 h-10 text-gray-800"
             }
             onClick={() => {
@@ -73,14 +74,14 @@ export default function TopRouting() {
               ? "./assets/images/TheLogo_DarkMode.png"
               : "./assets/images/TheLogo.png"
           }
-          className={mobileSearch ? "hidden" : "w-12 h-12"}
+          className={mobileSearch ? "hidden" : "w-12 h-12 ml-5"}
         />
-        <div className="flex px-5 items-center justify-between">
-          <div className="mr-5">
+        <div className="flex  items-center justify-between">
+          <div>
             <Search />
           </div>
-          <div className="">
-            <SignUp />
+          <div>
+            <BurgerMenu />
           </div>
         </div>
       </div>

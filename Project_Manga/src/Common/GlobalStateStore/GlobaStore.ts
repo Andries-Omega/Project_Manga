@@ -35,9 +35,15 @@ export const globalSlice = createSlice({
       state.currentPage = action.payload;
     },
     setMobileBurger: (state, action: PayloadAction<boolean>) => {
+      if (action.payload) {
+        state.mobileSearchOn = false;
+      } //just to make sure they don't search while nav bar open
       state.mobileBurgerOn = action.payload;
     },
     setMobileSearch: (state, action: PayloadAction<boolean>) => {
+      if (action.payload) {
+        state.mobileBurgerOn = false;
+      } //just to make sure they don't search while nav bar open
       state.mobileSearchOn = action.payload;
     },
   },
