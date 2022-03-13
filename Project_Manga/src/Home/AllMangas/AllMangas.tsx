@@ -20,7 +20,9 @@ export default function AllManga() {
   const allMangas = useSelector(
     (state: RootState) => state.homeMangas.allMangas
   );
+
   const dispatch = useDispatch();
+
   useEffect(() => {
     /**
      * So, the goal here is only to make a network request when the headline is over
@@ -29,12 +31,9 @@ export default function AllManga() {
       getAllMangas()
         .then((res) => {
           dispatch(setAllMangas(res));
-          res.map((manga: MangaDetails, i) => {
+          res.map((manga: MangaDetails, i: number) => {
             getRandomMangaCover(manga.mangaCover_ArtID)
               .then((results) => {
-                console.log(
-                  results.data.attributes.fileName + " " + manga.mangaTitle
-                );
                 dispatch(
                   setMangaCoverIMG({
                     index: i,
@@ -42,7 +41,7 @@ export default function AllManga() {
                       "https://uploads.mangadex.org/covers/" +
                       manga.mangaID +
                       "/" +
-                      results.data.attributes.fileName,
+                      results.mangaCover_IMG,
                   })
                 );
               })
@@ -59,13 +58,11 @@ export default function AllManga() {
     <div className="container pt-56 pl-11">
       <div className="grid grid-cols-2 gap-y-32 place-content-center mb-20">
         {allMangas[allMangas.length - 1].mangaCover_IMG &&
-          allMangas.map((manga: MangaDetails) => {
-            return (
-              <div className="pl-8 ">
-                <MangaCard manga={manga} />
-              </div>
-            );
-          })}
+          allMangas.map((manga: MangaDetails) => (
+            <div className="pl-8 ">
+              <MangaCard manga={manga} />
+            </div>
+          ))}
       </div>
     </div>
   );

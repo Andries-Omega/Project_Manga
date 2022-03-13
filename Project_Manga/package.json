@@ -3,7 +3,6 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    
     "dev": "vite --open --https",
     "build": "tsc && vite build",
     "preview": "vite preview"
@@ -13,6 +12,7 @@
     "fs": "^0.0.1-security",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-query": "^3.34.16",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.2"
   },

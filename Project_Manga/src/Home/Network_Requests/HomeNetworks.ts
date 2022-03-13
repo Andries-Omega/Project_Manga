@@ -1,5 +1,8 @@
 import { MangaDetails } from "../Mangas_Store/HomeManga";
 
+type MangaCover = {
+  mangaCoverIMG: string;
+};
 export const getRandomManga = async () => {
   return await fetch(`https://api.mangadex.org/manga/random`)
     .then((res) => res.json())
@@ -26,7 +29,8 @@ export const getRandomMangaCover = async (mangaCoverID: string) => {
   return await fetch(`https://api.mangadex.org/cover/${mangaCoverID}`)
     .then((res) => res.json())
     .then((res) => {
-      return res;
+      let fileName = res.data.attributes.fileName || "";
+      return { mangaCover_IMG: fileName };
     })
     .catch((err) => {
       throw new Error(err);
@@ -34,7 +38,7 @@ export const getRandomMangaCover = async (mangaCoverID: string) => {
 };
 
 export const getAllMangas = async () => {
-  return await fetch(`https://api.mangadex.org/manga?=100`)
+  return await fetch(`https://api.mangadex.org/manga?limit=20`)
     .then((res) => res.json())
     .then((res) => {
       return createAllMangas(res);

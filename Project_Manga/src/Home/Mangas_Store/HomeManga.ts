@@ -17,8 +17,8 @@ export type MangaDetails = {
 
 export enum NetworkStatus {
   IDLING = "Idling",
-  PENDING = "Pending",
-  FAILED = "Failed",
+  PENDING = "loading",
+  FAILED = "error",
   SUCCESS = "Success",
 }
 
@@ -47,10 +47,14 @@ export const mangaSlice = createSlice({
     setAllMangaNetworkStatus: (state, action: PayloadAction<NetworkStatus>) => {
       state.allMangaNetwork_Status = action.payload;
     },
-    setRandomManga: (state, action: PayloadAction<MangaDetails>) => {
-      state.randomManga = action.payload;
+    setRandomManga: (
+      state,
+      action: PayloadAction<MangaDetails | undefined>
+    ) => {
+      state.randomManga = action.payload || state.randomManga;
     },
     setRandomMangaCoverIMG: (state, action: PayloadAction<string>) => {
+      console.log("setting Image ", action.payload);
       state.randomManga.mangaCover_IMG = action.payload;
     },
     setMangaCoverIMG: (state, action: PayloadAction<any>) => {
