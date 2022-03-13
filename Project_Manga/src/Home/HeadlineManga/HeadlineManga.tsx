@@ -8,7 +8,8 @@ import {
 export default function HeadlineManga() {
   const { data: randomMangaData, status: rando_manga_Status } = useQuery(
     "random_manga",
-    getRandomManga
+    getRandomManga,
+    { refetchOnWindowFocus: false }
   );
 
   const mangaCoverID = randomMangaData?.mangaCover_ArtID;
@@ -20,8 +21,10 @@ export default function HeadlineManga() {
   } = useQuery(
     ["random_manga_cover", mangaCoverID],
     () => getRandomMangaCover(mangaCoverID || ""),
+
     {
       enabled: !!mangaCoverID,
+      refetchOnWindowFocus: false,
     }
   );
 
