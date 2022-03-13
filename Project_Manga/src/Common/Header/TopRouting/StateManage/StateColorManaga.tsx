@@ -12,9 +12,12 @@ export default function StateColorManaga() {
     <div
       className={
         darkMode
-          ? "rounded-full w-20 h-10 bg-slate-300 bg-opacity-50 grid content-center place-content-end ease-in duration-500"
-          : "rounded-full w-20 h-10 bg-slate-300 bg-opacity-50 grid content-center place-content-start ease-out duration-500"
+          ? " cursor-pointer rounded-full w-20 h-10 bg-slate-300 bg-opacity-50 grid content-center place-content-end ease-in duration-500"
+          : " cursor-pointer rounded-full w-20 h-10 bg-slate-300 bg-opacity-50 grid content-center place-content-start ease-out duration-500"
       }
+      onClick={() => {
+        dispatch(setDarkMode(!darkMode));
+      }}
     >
       <button
         className=" rounded-full h-10 w-10 bg-blue-500 align-middle"
