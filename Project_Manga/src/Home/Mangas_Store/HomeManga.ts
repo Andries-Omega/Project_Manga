@@ -41,21 +41,8 @@ export const mangaSlice = createSlice({
   name: "homeMangas",
   initialState,
   reducers: {
-    setRandomNetworkStatus: (state, action: PayloadAction<NetworkStatus>) => {
-      state.randomMangaNetwork_Status = action.payload;
-    },
     setAllMangaNetworkStatus: (state, action: PayloadAction<NetworkStatus>) => {
       state.allMangaNetwork_Status = action.payload;
-    },
-    setRandomManga: (
-      state,
-      action: PayloadAction<MangaDetails | undefined>
-    ) => {
-      state.randomManga = action.payload || state.randomManga;
-    },
-    setRandomMangaCoverIMG: (state, action: PayloadAction<string>) => {
-      console.log("setting Image ", action.payload);
-      state.randomManga.mangaCover_IMG = action.payload;
     },
     setMangaCoverIMG: (state, action: PayloadAction<any>) => {
       state.allMangas[action.payload.index].mangaCover_IMG =
@@ -67,13 +54,7 @@ export const mangaSlice = createSlice({
   },
 });
 
-export const {
-  setRandomNetworkStatus,
-  setAllMangaNetworkStatus,
-  setRandomManga,
-  setMangaCoverIMG,
-  setAllMangas,
-  setRandomMangaCoverIMG,
-} = mangaSlice.actions;
+export const { setAllMangaNetworkStatus, setMangaCoverIMG, setAllMangas } =
+  mangaSlice.actions;
 
 export default mangaSlice.reducer;

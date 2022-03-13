@@ -3,14 +3,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
 import {
   MangaDetails,
-  NetworkStatus,
   setAllMangas,
   setMangaCoverIMG,
 } from "../Mangas_Store/HomeManga";
+
 import {
   getAllMangas,
   getRandomMangaCover,
 } from "../Network_Requests/HomeNetworks";
+
 import MangaCard from "./MangaCart";
 
 export default function AllManga() {

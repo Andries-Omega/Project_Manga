@@ -4,8 +4,9 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./store";
+
 import { QueryClientProvider, QueryClient } from "react-query";
+import { store } from "./store";
 
 const queryClient = new QueryClient();
 ReactDOM.render(
