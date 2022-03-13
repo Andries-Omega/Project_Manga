@@ -76,7 +76,7 @@ export default function HeadlineManga() {
         className="bg-cover bg-center bg-no-repeat h-96 w-full
         "
         style={{
-          backgroundImage: `url('../../../assets/images/manga_headline.jpg')`,
+          backgroundImage: `url('../../../assets/images/manga_headline.png')`,
         }}
       >
         <div

@@ -5,6 +5,8 @@ interface GlobalStore {
   darkMode: boolean;
   sideHeaderMouseHover: boolean;
   currentPage: string;
+  mobileBurgerOn: boolean;
+  mobileSearchOn: boolean;
 }
 
 const initialState: GlobalStore = {
@@ -12,6 +14,8 @@ const initialState: GlobalStore = {
   darkMode: false,
   sideHeaderMouseHover: false,
   currentPage: "/",
+  mobileBurgerOn: false,
+  mobileSearchOn: false,
 };
 
 export const globalSlice = createSlice({
@@ -30,10 +34,22 @@ export const globalSlice = createSlice({
     setCurrentPage: (state, action: PayloadAction<string>) => {
       state.currentPage = action.payload;
     },
+    setMobileBurger: (state, action: PayloadAction<boolean>) => {
+      state.mobileBurgerOn = action.payload;
+    },
+    setMobileSearch: (state, action: PayloadAction<boolean>) => {
+      state.mobileSearchOn = action.payload;
+    },
   },
 });
 
-export const { setDarkMode, setFooter, setCurrentPage, setSideMouseHover } =
-  globalSlice.actions;
+export const {
+  setDarkMode,
+  setFooter,
+  setCurrentPage,
+  setSideMouseHover,
+  setMobileBurger,
+  setMobileSearch,
+} = globalSlice.actions;
 
 export default globalSlice.reducer;
