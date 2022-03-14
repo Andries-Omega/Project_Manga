@@ -14,16 +14,15 @@ export default function SideRouting() {
   );
   const dispatch = useDispatch();
 
-  let bgColor = darkMode ? "bg-gray-800" : "bg-slate-200"; // For BG Color to respond to darkmode or light mode
   return (
     <div>
       {/* Desktop view*/}
       <div
-        className={
-          mouseHover
-            ? `${bgColor} w-52 float-left h-screen pt-5 ease-in duration-500 rounded-br-lg opacity-[.94] lg:block hidden`
-            : `${bgColor} w-16 float-left h-screen pt-5 ease-out duration-1000 rounded-br-lg lg:block hidden`
-        }
+        className={`${darkMode ? "bg-gray-800" : "bg-slate-200"}
+        ${
+          mouseHover ? "w-52" : "w-16"
+        } float-left h-screen pt-5 ease-in duration-500 rounded-br-lg 
+        ${mouseHover ? "opacity-[.94]" : ""} md:block hidden`}
         onMouseEnter={() => {
           dispatch(setSideMouseHover(true));
         }}
@@ -31,20 +30,77 @@ export default function SideRouting() {
           dispatch(setSideMouseHover(false));
         }}
       >
-        <div className="grid place-items-center ">
+        <div className="grid place-items-center gap-10 ">
           <div>
             <a
-              className={
+              className={`${
                 currentPage === "/"
-                  ? " text-blue-500 text-xl cursor-pointer hover:text-blue-700 font-mono"
-                  : "text-black text-xl cursor-pointer hover:text-blue-500 font-mono"
-              }
+                  ? "text-blue-500 hover:text-blue-700"
+                  : darkMode
+                  ? "text-white hover:text-blue-500"
+                  : "text-black hover:text-blue-500"
+              } text-base cursor-pointer`}
             >
-              <span className="mr-3">
+              <span className={mouseHover ? "hidden" : ""}>
                 <i className="fa-solid fa-house "></i>
               </span>
 
-              <span className={mouseHover ? "" : "hidden"}>Home</span>
+              <span className={mouseHover ? " ml-5" : "hidden"}>Home</span>
+            </a>
+          </div>
+          <div>
+            <a
+              className={`${
+                currentPage === "create_manga"
+                  ? "text-blue-500 hover:text-blue-700"
+                  : darkMode
+                  ? "text-white hover:text-blue-500"
+                  : "text-black hover:text-blue-500"
+              } text-base cursor-pointer `}
+            >
+              <span className={mouseHover ? "hidden" : ""}>
+                <i className="fa-solid fa-gears"></i>
+              </span>
+
+              <span className={mouseHover ? "ml-5" : "hidden"}>
+                Create Manga
+              </span>
+            </a>
+          </div>
+          <div>
+            <a
+              className={`${
+                currentPage === "liked_mangas"
+                  ? "text-blue-500 hover:text-blue-700"
+                  : darkMode
+                  ? "text-white hover:text-blue-500"
+                  : "text-black hover:text-blue-500"
+              } text-base cursor-pointer  `}
+            >
+              <span className={mouseHover ? "hidden" : ""}>
+                <i className="fa-solid fa-heart"></i>
+              </span>
+
+              <span className={mouseHover ? "ml-5" : "hidden"}>
+                Liked Manga
+              </span>
+            </a>
+          </div>
+          <div>
+            <a
+              className={`${
+                currentPage === "read_manga"
+                  ? "text-blue-500 hover:text-blue-700"
+                  : darkMode
+                  ? "text-white hover:text-blue-500"
+                  : "text-black hover:text-blue-500"
+              } text-base cursor-pointer `}
+            >
+              <span className={mouseHover ? "hidden" : ""}>
+                <i className="fa-solid fa-book-open"></i>
+              </span>
+
+              <span className={mouseHover ? "ml-5" : "hidden"}>Read Manga</span>
             </a>
           </div>
         </div>

@@ -25,6 +25,21 @@ export const solveCaptcha = async (captchaResult: string) => {
     .catch((err) => console.error(err));
 };
 
+export const getListOfMangasIMGs = async (
+  listOfMangas: MangaDetails[] | undefined
+) => {
+  if (!listOfMangas) return null;
+  listOfMangas.map((manga) => {
+    getRandomMangaCover(manga.mangaCover_ArtID).then((res) => {
+      manga.mangaCover_IMG =
+        "https://uploads.mangadex.org/covers/" +
+        manga.mangaID +
+        "/" +
+        res.mangaCover_IMG;
+    });
+  });
+  return listOfMangas;
+};
 export const getRandomMangaCover = async (mangaCoverID: string) => {
   return await fetch(`https://api.mangadex.org/cover/${mangaCoverID}`)
     .then((res) => res.json())

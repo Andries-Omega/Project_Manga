@@ -11,13 +11,13 @@ import { store } from "./store";
 const queryClient = new QueryClient();
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <BrowserRouter>
       <Provider store={store}>
-        <BrowserRouter>
+        <QueryClientProvider client={queryClient}>
           <App />
-        </BrowserRouter>
+        </QueryClientProvider>
       </Provider>
-    </QueryClientProvider>
+    </BrowserRouter>
   </React.StrictMode>,
 
   document.getElementById("root")

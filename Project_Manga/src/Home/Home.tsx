@@ -10,8 +10,8 @@ export default function Home() {
   );
   return (
     <div>
-      {/* <HeadlineManga />
-      <AllManga /> */}
+      <HeadlineManga />
+      <AllManga />
     </div>
   );
 }

@@ -3,17 +3,19 @@ import { RootState } from "../../store";
 import { MangaDetails } from "../Mangas_Store/HomeManga";
 
 export default function MangaCard(props: any) {
+  console.log();
   const mangaDetails: MangaDetails = props.manga;
   const darkMode = useSelector(
     (state: RootState) => state.globalState.darkMode
   );
+  console.log(mangaDetails);
   return (
     <div
-      className={
+      className={`${
         darkMode
-          ? " bg-slate-700 border-gray-400 border-2 border-l-0 grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80"
-          : "bg-white grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80"
-      }
+          ? "bg-slate-700 border-gray-400 border-2 border-l-0"
+          : "bg-white"
+      } grid grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80`}
     >
       <div
         className=" bg-no-repeat bg-cover h-96 w-full -mt-7 rounded-md shadow-2xl
@@ -26,13 +28,13 @@ export default function MangaCard(props: any) {
           }')`,
         }}
       ></div>
-      <div className={darkMode ? "pr-5 text-slate-50" : "pr-5 text-black"}>
+      <div className={`pr-5 ${darkMode ? " text-slate-50" : "text-black"}`}>
         <h3 className="font-bold text-lg mt-2 h-16">
           {mangaDetails.mangaTitle}
         </h3>
 
         <div className="h-[173px] overflow-y-auto mb-2">
-          <p className={darkMode ? "" : ""}>{mangaDetails.mangaDescription}</p>
+          <p className=" break-all">{mangaDetails.mangaDescription}</p>
         </div>
         <button
           className="w-full bg-blue-500 h-10 text-white bottom-0 inset-x-0 z-10 mt-5 rounded-sm

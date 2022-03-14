@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useQuery } from "react-query";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store";
 import {
@@ -57,7 +58,7 @@ export default function AllManga() {
 
   return (
     <div className="container pt-56 pl-11">
-      <div className="grid grid-cols-2 gap-y-32 place-content-center pb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-32 place-content-center pb-32">
         {allMangas[allMangas.length - 1].mangaCover_IMG &&
           allMangas.map((manga: MangaDetails) => (
             <div className="pl-8 ">
