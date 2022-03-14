@@ -15,8 +15,8 @@ export default function App() {
       <div
         className={
           darkMode
-            ? "z-10 bg-slate-700 ease-in duration-500 pl-5"
-            : "z-10 bg-white ease-in duration-500 pl-5"
+            ? "z-10 bg-slate-700 ease-in duration-500 md:pl-5"
+            : "z-10 bg-white ease-in duration-500 md:pl-5"
         }
       >
         <Routes>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { setFooter } from "../GlobalStateStore/GlobaStore";
+import { setScrollUp } from "../GlobalStateStore/GlobaStore";
 
 export default function ScrollUp() {
   const showFooter = useSelector(
@@ -11,7 +11,9 @@ export default function ScrollUp() {
 
   useEffect(() => {
     addEventListener("scroll", () => {
-      scrollY > 600 ? dispatch(setFooter(true)) : dispatch(setFooter(false));
+      scrollY > 600
+        ? dispatch(setScrollUp(true))
+        : dispatch(setScrollUp(false));
     });
   });
   return (

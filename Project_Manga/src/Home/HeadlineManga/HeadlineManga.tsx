@@ -37,16 +37,11 @@ export default function HeadlineManga() {
     random_manga_cover_status === NetworkStatus.PENDING
   ) {
     return (
-      <div>
-        <h1
-          className={
-            darkMode
-              ? "text-lg text-white text-center mt-5"
-              : " text-lg text-black text-center mt-5"
-          }
-        >
-          Pending...
-        </h1>
+      <div className=" flex justify-center items-center h-96">
+        <img
+          src="./assets/images/favicon.png"
+          className=" h-52 w-52 animate-spin"
+        />
       </div>
     );
   }

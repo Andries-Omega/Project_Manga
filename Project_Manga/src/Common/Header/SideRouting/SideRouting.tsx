@@ -30,7 +30,11 @@ export default function SideRouting() {
           dispatch(setSideMouseHover(false));
         }}
       >
-        <div className="grid place-items-center gap-10 ">
+        <div
+          className={`grid ${
+            mouseHover ? "place-items-start" : " place-items-center"
+          } gap-5`}
+        >
           <div>
             <a
               className={`${
@@ -41,7 +45,7 @@ export default function SideRouting() {
                   : "text-black hover:text-blue-500"
               } text-base cursor-pointer`}
             >
-              <span className={mouseHover ? "hidden" : ""}>
+              <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-house "></i>
               </span>
 
@@ -58,7 +62,7 @@ export default function SideRouting() {
                   : "text-black hover:text-blue-500"
               } text-base cursor-pointer `}
             >
-              <span className={mouseHover ? "hidden" : ""}>
+              <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-gears"></i>
               </span>
 
@@ -77,7 +81,7 @@ export default function SideRouting() {
                   : "text-black hover:text-blue-500"
               } text-base cursor-pointer  `}
             >
-              <span className={mouseHover ? "hidden" : ""}>
+              <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-heart"></i>
               </span>
 
@@ -96,7 +100,7 @@ export default function SideRouting() {
                   : "text-black hover:text-blue-500"
               } text-base cursor-pointer `}
             >
-              <span className={mouseHover ? "hidden" : ""}>
+              <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-book-open"></i>
               </span>
 

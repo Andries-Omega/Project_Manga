@@ -25,7 +25,7 @@ export const globalSlice = createSlice({
     setDarkMode: (state, action: PayloadAction<boolean>) => {
       state.darkMode = action.payload;
     },
-    setFooter: (state, action: PayloadAction<boolean>) => {
+    setScrollUp: (state, action: PayloadAction<boolean>) => {
       state.showFooter = action.payload;
     },
     setSideMouseHover: (state, action: PayloadAction<boolean>) => {
@@ -51,7 +51,7 @@ export const globalSlice = createSlice({
 
 export const {
   setDarkMode,
-  setFooter,
+  setScrollUp,
   setCurrentPage,
   setSideMouseHover,
   setMobileBurger,
