@@ -70,7 +70,7 @@ export default function MangaCard(props: any) {
             backgroundImage: `url('${
               mangaDetails.mangaCover_IMG
                 ? mangaDetails.mangaCover_IMG
-                : "../../assets/images/manga_cover_art.png"
+                : "../../assets/images/mobile_cover_art_not_available.png"
             }')`,
           }}
         ></div>
@@ -79,6 +79,12 @@ export default function MangaCard(props: any) {
           <div className=" h-40 overflow-y-auto">
             <p className=" break-all mr-3">{mangaDetails.mangaDescription}</p>
           </div>
+          <button
+            className="w-full bg-blue-500 h-10 text-white bottom-0 inset-x-0 z-10 mt-5 rounded-sm
+                           hover:bg-blue-800 hover:scale-110 duration-500"
+          >
+            Read
+          </button>
         </div>
       </div>
     </div>
