@@ -20,7 +20,7 @@ export default function ScrollUp() {
     <button
       className={
         showFooter
-          ? "bg-blue-500 cursor-pointer fixed text-white rounded-lg h-12 px-5 shadow-2xl hover:bg-blue-800 bottom-0 w-12 right-0 mr-6 mb-10 hover:scale-110 duration-500"
+          ? "bg-blue-500 cursor-pointer fixed text-white rounded-lg h-12 px-5 shadow-2xl hover:bg-blue-800 bottom-0 w-12 right-0 mr-4 md:mr-6 mb-16 md:mb-10 hover:scale-110 duration-500"
           : "hidden"
       }
       onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
