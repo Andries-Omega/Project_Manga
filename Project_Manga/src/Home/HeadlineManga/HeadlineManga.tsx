@@ -75,11 +75,9 @@ export default function HeadlineManga() {
         }}
       >
         <div
-          className={
-            darkMode
-              ? "bg-black w-full h-96 bg-opacity-50"
-              : " bg-white w-full h-96 bg-opacity-50"
-          }
+          className={`bg-${
+            darkMode ? "black" : "white"
+          } w-full h-52 md:h-96 bg-opacity-50`}
         ></div>
         <div className=" flex  ">
           <img
@@ -89,10 +87,10 @@ export default function HeadlineManga() {
               "/" +
               randomMangaCover?.mangaCover_IMG
             }
-            className="-mt-64 md:-mt-32 w-40 md:w-52 h-52 md:h-64 mx-5 md:mx-10 rounded-md 
+            className="-mt-20 md:-mt-32 w-40 md:w-52 h-52 md:h-64 mx-5 md:mx-10 rounded-md 
                         duration-500  hover:scale-110 cursor-pointer"
           />
-          <div className="-mt-40 md:mt-5">
+          <div className="mt-5">
             <h1
               className={`text-${
                 darkMode ? "white" : "black"
