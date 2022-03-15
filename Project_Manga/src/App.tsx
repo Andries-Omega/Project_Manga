@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import ScrollUp from "./Common/Footer/ScrollUp";
 import Header from "./Common/Header/Header";
 import Home from "./Home/Home";
+import MangaReading from "./MangaReading/MangaReading";
 import { RootState } from "./store";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
       >
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/manga_read/:mangaID" element={<MangaReading />} />
         </Routes>
       </div>
 

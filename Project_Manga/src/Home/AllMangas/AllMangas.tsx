@@ -1,18 +1,9 @@
-import { useEffect } from "react";
-import { useQueries, useQuery } from "react-query";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store";
-import {
-  MangaDetails,
-  NetworkStatus,
-  setAllMangas,
-  setMangaCoverIMG,
-} from "../Mangas_Store/HomeManga";
+import { useQuery } from "react-query";
+import { MangaDetails, NetworkStatus } from "../../Model/Globase_Types";
 
 import {
   getAllMangas,
   getListOfMangasIMGs,
-  getRandomMangaCover,
 } from "../Network_Requests/HomeNetworks";
 
 import MangaCard from "./MangaCart";

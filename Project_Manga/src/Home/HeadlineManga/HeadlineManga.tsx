@@ -1,13 +1,16 @@
 import { useQuery } from "react-query";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { NetworkStatus } from "../../Model/Globase_Types";
 import { RootState } from "../../store";
-import { NetworkStatus } from "../Mangas_Store/HomeManga";
+
 import {
   getRandomManga,
   getRandomMangaCover,
 } from "../Network_Requests/HomeNetworks";
 
 export default function HeadlineManga() {
+  const navigate = useNavigate();
   const { data: randomMangaData, status: rando_manga_Status } = useQuery(
     "random_manga",
     getRandomManga,
@@ -89,6 +92,7 @@ export default function HeadlineManga() {
             }
             className="-mt-20 md:-mt-32 w-40 md:w-52 h-52 md:h-64 mx-5 md:mx-10 rounded-md 
                         duration-500  hover:scale-110 cursor-pointer"
+            onClick={() => navigate(`/manga_read/${randomMangaData?.mangaID}`)}
           />
           <div className="mt-5">
             <h1

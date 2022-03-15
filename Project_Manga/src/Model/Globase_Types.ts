@@ -36,25 +36,3 @@ const initialState: IMangaDetails = {
   allMangaNetwork_Status: NetworkStatus.IDLING,
   coverIMG_NetworkStatus: NetworkStatus.IDLING,
 };
-
-export const mangaSlice = createSlice({
-  name: "homeMangas",
-  initialState,
-  reducers: {
-    setAllMangaNetworkStatus: (state, action: PayloadAction<NetworkStatus>) => {
-      state.allMangaNetwork_Status = action.payload;
-    },
-    setMangaCoverIMG: (state, action: PayloadAction<any>) => {
-      state.allMangas[action.payload.index].mangaCover_IMG =
-        action.payload.mangaCover_IMG;
-    },
-    setAllMangas: (state, action: PayloadAction<MangaDetails[]>) => {
-      state.allMangas = action.payload;
-    },
-  },
-});
-
-export const { setAllMangaNetworkStatus, setMangaCoverIMG, setAllMangas } =
-  mangaSlice.actions;
-
-export default mangaSlice.reducer;

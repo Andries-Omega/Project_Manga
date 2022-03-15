@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { MangaDetails } from "../../Model/Globase_Types";
 import { RootState } from "../../store";
-import { MangaDetails } from "../Mangas_Store/HomeManga";
 
 export default function MangaCard(props: any) {
   /**
@@ -19,6 +20,7 @@ export default function MangaCard(props: any) {
   const darkMode = useSelector(
     (state: RootState) => state.globalState.darkMode
   );
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -40,6 +42,7 @@ export default function MangaCard(props: any) {
                 : "../../assets/images/manga_cover_art.png"
             }')`,
           }}
+          onClick={() => navigate(`/manga_read/${mangaDetails?.mangaID}`)}
         ></div>
         <div className={`pr-5 ${darkMode ? " text-slate-50" : "text-black"}`}>
           <h3 className="font-bold text-lg mt-2 h-16">
@@ -82,6 +85,7 @@ export default function MangaCard(props: any) {
           <button
             className="w-full bg-blue-500 h-10 text-white bottom-0 inset-x-0 z-10 mt-5 rounded-sm
                            hover:bg-blue-800 hover:scale-110 duration-500"
+            onClick={() => navigate(`/manga_read/${mangaDetails?.mangaID}`)}
           >
             Read
           </button>

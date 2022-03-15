@@ -1,4 +1,4 @@
-import { MangaDetails } from "../Mangas_Store/HomeManga";
+import { MangaDetails } from "../../Model/Globase_Types";
 
 type MangaCover = {
   mangaCoverIMG: string;
