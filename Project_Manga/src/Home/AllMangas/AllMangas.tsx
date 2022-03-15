@@ -19,7 +19,7 @@ import MangaCard from "./MangaCart";
 
 export default function AllManga() {
   const { data: all_manga, status: all_manga_status } = useQuery(
-    "all_manga",
+    "all_manga_key",
     getAllMangas,
     { refetchOnWindowFocus: false }
   );
@@ -32,7 +32,10 @@ export default function AllManga() {
       refetchOnWindowFocus: false,
     }
   );
-  if (all_manga_cover_status === "loading") {
+  if (
+    all_manga_cover_status === NetworkStatus.PENDING ||
+    all_manga_status === NetworkStatus.PENDING
+  ) {
     return (
       <div className=" flex justify-center items-center h-96">
         <img
@@ -43,7 +46,10 @@ export default function AllManga() {
     );
   }
 
-  if (all_manga_cover_status === NetworkStatus.FAILED && !all_manga_cover) {
+  if (
+    all_manga_cover_status === NetworkStatus.FAILED ||
+    all_manga_status === NetworkStatus.FAILED
+  ) {
     return <h1>Failed</h1>;
   }
 
@@ -53,7 +59,7 @@ export default function AllManga() {
         {all_manga_cover &&
           all_manga_cover?.map((manga: MangaDetails) => (
             <div className="pl-8 ">
-              <MangaCard manga={manga} />
+              <MangaCard key={manga.mangaID} manga={manga} />
             </div>
           ))}
       </div>
