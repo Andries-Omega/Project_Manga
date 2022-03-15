@@ -26,9 +26,9 @@ export const solveCaptcha = async (captchaResult: string) => {
 };
 
 export const getListOfMangasIMGs = async (
-  listOfMangas: MangaDetails[] | undefined
-) => {
-  if (!listOfMangas) return null;
+  listOfMangas: MangaDetails[]
+): Promise<MangaDetails[]> => {
+  if (!listOfMangas) return [] as MangaDetails[];
   listOfMangas.map((manga) => {
     getRandomMangaCover(manga.mangaCover_ArtID).then((res) => {
       manga.mangaCover_IMG =
@@ -38,6 +38,7 @@ export const getListOfMangasIMGs = async (
         res.mangaCover_IMG;
     });
   });
+
   return listOfMangas;
 };
 export const getRandomMangaCover = async (mangaCoverID: string) => {

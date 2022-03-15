@@ -33,7 +33,7 @@ export default function SideRouting() {
         <div
           className={`grid ${
             mouseHover ? "place-items-start" : " place-items-center"
-          } gap-5`}
+          } gap-10`}
         >
           <div>
             <a
@@ -43,7 +43,7 @@ export default function SideRouting() {
                   : darkMode
                   ? "text-white hover:text-blue-500"
                   : "text-black hover:text-blue-500"
-              } text-base cursor-pointer`}
+              } text-lg cursor-pointer`}
             >
               <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-house "></i>
@@ -60,7 +60,7 @@ export default function SideRouting() {
                   : darkMode
                   ? "text-white hover:text-blue-500"
                   : "text-black hover:text-blue-500"
-              } text-base cursor-pointer `}
+              } text-lg cursor-pointer `}
             >
               <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-gears"></i>
@@ -79,7 +79,7 @@ export default function SideRouting() {
                   : darkMode
                   ? "text-white hover:text-blue-500"
                   : "text-black hover:text-blue-500"
-              } text-base cursor-pointer  `}
+              } text-lg cursor-pointer  `}
             >
               <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-heart"></i>
@@ -98,7 +98,7 @@ export default function SideRouting() {
                   : darkMode
                   ? "text-white hover:text-blue-500"
                   : "text-black hover:text-blue-500"
-              } text-base cursor-pointer `}
+              } text-lg cursor-pointer `}
             >
               <span className={mouseHover ? "pl-4" : ""}>
                 <i className="fa-solid fa-book-open"></i>

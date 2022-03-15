@@ -1,14 +1,25 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { MangaDetails } from "../Mangas_Store/HomeManga";
 
 export default function MangaCard(props: any) {
-  console.log();
+  /**
+   * So i got a bug that i managed to fix by forcing react to re render after certain seconds. This to help the cover image show
+   */
+  const [state, setState] = useState("");
+  setTimeout(() => {
+    setState("Just So The COmponent re renders");
+  }, 2000);
+
+  /**
+   * Real code starts here:
+   */
   const mangaDetails: MangaDetails = props.manga;
   const darkMode = useSelector(
     (state: RootState) => state.globalState.darkMode
   );
-  console.log(mangaDetails);
+
   return (
     <div
       className={`${
@@ -34,7 +45,7 @@ export default function MangaCard(props: any) {
         </h3>
 
         <div className="h-[173px] overflow-y-auto mb-2">
-          <p className=" break-all">{mangaDetails.mangaDescription}</p>
+          <p className=" break-all mr-3">{mangaDetails.mangaDescription}</p>
         </div>
         <button
           className="w-full bg-blue-500 h-10 text-white bottom-0 inset-x-0 z-10 mt-5 rounded-sm
