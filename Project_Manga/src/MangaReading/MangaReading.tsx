@@ -11,7 +11,12 @@ import {
   getMangaPages,
 } from "./MangaReading_Networks/MangaReadingNetwork";
 import Pages from "./Pages/Pages";
-import { setPages } from "./ReadingManga_Store/ReadingManga_Store";
+import {
+  setChapters,
+  setOpenedChapter,
+  setOpenedManga,
+  setVolumes,
+} from "./ReadingManga_Store/ReadingManga_Store";
 import Volumes from "./Volumes/Volumes";
 
 export default function MangaReading() {
@@ -63,14 +68,19 @@ export default function MangaReading() {
   }
 
   console.log(reading_MangaChapters);
+  if (reading_mangaData && reading_MangaChapters) {
+    dispatch(setOpenedManga(reading_mangaData));
+    dispatch(setVolumes(reading_MangaChapters?.mangaVolumes));
+    dispatch(setChapters(reading_MangaChapters?.mangaChapters));
+    dispatch(setOpenedChapter(reading_MangaChapters?.mangaChapters[0]));
+  }
 
-  dispatch(setPages(reading_MangaPages.pages));
   return (
     <div>
       <div className="grid md:grid-cols-3 p-5 gap-5">
         {/* Pages And About */}
         <div className="col-span-2">
-          <Pages pages={reading_MangaPages.pages} />
+          <Pages />
           <AboutManga />
         </div>
         <div>
