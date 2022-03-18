@@ -28,8 +28,8 @@ export default function StateColorManaga() {
         <i
           className={
             darkMode
-              ? "fa-solid fa-sun ease-in duration-500 text-white"
-              : "fa-solid fa-moon ease-in duration-500"
+              ? "fa-solid fa-sun ease-in duration-500 "
+              : "fa-solid fa-moon ease-in duration-500 text-white"
           }
         ></i>
       </button>

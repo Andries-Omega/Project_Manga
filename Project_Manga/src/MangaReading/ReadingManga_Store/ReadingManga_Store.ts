@@ -20,7 +20,7 @@ export type OpenedMangaDetails = {
   openedVolume: MangaVolume;
   chapters: MangaChapter[];
   openedChapter: MangaChapter;
-
+  volumeSelection: boolean;
   openedPage: number;
 };
 
@@ -30,7 +30,7 @@ const initialState: OpenedMangaDetails = {
   openedVolume: {} as MangaVolume,
   chapters: [] as MangaChapter[],
   openedChapter: {} as MangaChapter,
-
+  volumeSelection: false,
   openedPage: 0,
 };
 
@@ -53,8 +53,12 @@ export const readingMangaSlice = createSlice({
     setOpenedChapter: (state, action: PayloadAction<MangaChapter>) => {
       state.openedChapter = action.payload;
     },
+
     setOpenedPage: (state, action: PayloadAction<number>) => {
       state.openedPage = action.payload;
+    },
+    setVolumeSelection: (state, action: PayloadAction<boolean>) => {
+      state.volumeSelection = action.payload;
     },
   },
 });
@@ -66,5 +70,6 @@ export const {
   setOpenedPage,
   setOpenedVolume,
   setVolumes,
+  setVolumeSelection,
 } = readingMangaSlice.actions;
 export default readingMangaSlice.reducer;

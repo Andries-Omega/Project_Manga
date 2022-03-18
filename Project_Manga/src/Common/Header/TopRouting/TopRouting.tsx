@@ -28,12 +28,15 @@ export default function TopRouting() {
         }
       >
         <img
+          onClick={() => {
+            navigate("/");
+          }}
           src={
             darkMode
               ? "assets/images/TheLogo_DarkMode.png"
               : "assets/images/TheLogo.png"
           }
-          className="w-16 h-16"
+          className="w-16 h-16 cursor-pointer"
         />
         <Search />
         <div className="flex px-5 items-center justify-between">
@@ -71,12 +74,15 @@ export default function TopRouting() {
           </button>
         )}
         <img
+          onClick={() => {
+            navigate("/");
+          }}
           src={
             darkMode
               ? "./assets/images/TheLogo_DarkMode.png"
               : "./assets/images/TheLogo.png"
           }
-          className={mobileSearch ? "hidden" : "w-12 h-12 ml-5"}
+          className={mobileSearch ? "hidden" : "w-12 h-12 ml-5 cursor-pointer"}
         />
         <div className="flex  items-center justify-between">
           <div>

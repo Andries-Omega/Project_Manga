@@ -1,8 +1,9 @@
 import React from "react";
 import { useQuery } from "react-query";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { MangaChapter, NetworkStatus } from "../Model/Globase_Types";
+import { RootState } from "../store";
 import AboutManga from "./About_Manga/AboutManga";
 import Chapters from "./Chapters/Chapters";
 import {
@@ -15,12 +16,16 @@ import {
   setChapters,
   setOpenedChapter,
   setOpenedManga,
+  setOpenedVolume,
   setVolumes,
 } from "./ReadingManga_Store/ReadingManga_Store";
 import Volumes from "./Volumes/Volumes";
 
 export default function MangaReading() {
   const dispatch = useDispatch();
+  const darkMode = useSelector(
+    (state: RootState) => state.globalState.darkMode
+  );
   const { mangaID } = useParams();
   const { data: reading_mangaData, status: reading_mangaStatus } = useQuery(
     "reading_manga",
@@ -71,19 +76,24 @@ export default function MangaReading() {
   if (reading_mangaData && reading_MangaChapters) {
     dispatch(setOpenedManga(reading_mangaData));
     dispatch(setVolumes(reading_MangaChapters?.mangaVolumes));
+    dispatch(setOpenedVolume(reading_MangaChapters.mangaVolumes[0]));
     dispatch(setChapters(reading_MangaChapters?.mangaChapters));
     dispatch(setOpenedChapter(reading_MangaChapters?.mangaChapters[0]));
   }
 
   return (
     <div>
-      <div className="grid md:grid-cols-3 p-5 gap-5">
+      <div
+        className={`grid md:grid-cols-3 p-5 gap-5 mb-12   text-${
+          darkMode ? "white" : "black"
+        }`}
+      >
         {/* Pages And About */}
         <div className="col-span-2">
           <Pages />
           <AboutManga />
         </div>
-        <div>
+        <div className="col-span-2 md:col-span-1">
           <Volumes />
           <Chapters />
         </div>

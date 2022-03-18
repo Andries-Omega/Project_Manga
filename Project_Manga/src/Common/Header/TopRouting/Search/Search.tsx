@@ -21,10 +21,12 @@ export default function Search() {
           placeholder="Search for manga..."
         />
         <button
-          className=" bg-blue-500 w-10 h-10
-                                    hover:bg-blue-700"
+          className={`bg-blue-500 w-10 h-10
+                                    hover:bg-blue-700  text-${
+                                      darkMode ? "slate-800" : "white"
+                                    }`}
         >
-          <i className="fa-solid fa-magnifying-glass text-lg text-white"></i>
+          <i className="fa-solid fa-magnifying-glass text-lg "></i>
         </button>
       </div>
       {/* Mobile View*/}

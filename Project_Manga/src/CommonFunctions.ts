@@ -47,11 +47,13 @@ export const createMangaInformation = (
   let mangaVolumes: MangaVolume[] = Object.values(mangaInformation.volumes);
 
   let mangaChapters: MangaChapter[] = [];
-  mangaVolumes.map((mangaVolume) => {
+  mangaVolumes.map((mangaVolume, i) => {
     let volumeChapter: MangaChapter[] = Object.values(mangaVolume.chapters);
     volumeChapter = addVolume(volumeChapter, mangaVolume.volume);
     mangaChapters = mangaChapters.concat(volumeChapter);
+    mangaVolumes[i]["chapters"] = volumeChapter;
   });
+
   mangaI = {
     ...mangaI,
     mangaID: mangaID,
