@@ -1,5 +1,5 @@
-import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { RootState } from "../../../store";
 
 export default function MobileSiteRouting() {
@@ -10,13 +10,14 @@ export default function MobileSiteRouting() {
   const currentPage = useSelector(
     (state: RootState) => state.globalState.currentPage
   );
+  const navigate = useNavigate();
   return (
     <div
       className={`fixed bottom-0 inset-x-0 flex justify-around items-center ${
         darkMode ? "bg-gray-800" : "bg-slate-200"
       } rounded-t-xl h-12`}
     >
-      <div>
+      <div onClick={() => navigate("/")}>
         <a
           className={`${
             currentPage === "/"

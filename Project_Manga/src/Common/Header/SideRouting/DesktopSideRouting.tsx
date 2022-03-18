@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { RootState } from "../../../store";
 import { setSideMouseHover } from "../../GlobalStateStore/GlobaStore";
 
@@ -13,6 +14,7 @@ export default function DesktopSideRouting() {
   const currentPage = useSelector(
     (state: RootState) => state.globalState.currentPage
   );
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <div
@@ -33,7 +35,7 @@ export default function DesktopSideRouting() {
           mouseHover ? "place-items-start" : " place-items-center"
         } gap-10`}
       >
-        <div>
+        <div onClick={() => navigate("/")}>
           <a
             className={`${
               currentPage === "/"

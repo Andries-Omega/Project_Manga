@@ -55,6 +55,7 @@ export default function MangaCard(props: any) {
           <button
             className="w-full bg-blue-500 h-10 text-white bottom-0 inset-x-0 z-10 mt-5 rounded-sm
                            hover:bg-blue-800 hover:scale-110 duration-500"
+            onClick={() => navigate(`/manga_read/${mangaDetails?.mangaID}`)}
           >
             Read
           </button>

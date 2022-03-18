@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { RootState } from "../../../store";
 import { setMobileSearch } from "../../GlobalStateStore/GlobaStore";
 import BurgerMenu from "./MobileBurger/BurgerMenu";
@@ -14,6 +15,7 @@ export default function TopRouting() {
   const mobileSearch = useSelector(
     (state: RootState) => state.globalState.mobileSearchOn
   );
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <div>
@@ -28,8 +30,8 @@ export default function TopRouting() {
         <img
           src={
             darkMode
-              ? "./assets/images/TheLogo_DarkMode.png"
-              : "./assets/images/TheLogo.png"
+              ? "assets/images/TheLogo_DarkMode.png"
+              : "assets/images/TheLogo.png"
           }
           className="w-16 h-16"
         />

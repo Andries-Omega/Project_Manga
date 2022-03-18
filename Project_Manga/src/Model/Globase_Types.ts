@@ -15,24 +15,39 @@ export type MangaDetails = {
   mangaCover_IMG: string;
 };
 
+/**
+ * For list of mangas chapters
+ */
+export type MangaReadInfomation = {
+  mangaID: string;
+  manga: MangaDetails;
+  mangaVolumes: MangaVolume[];
+  mangaChapters: MangaChapter[];
+  numberOfVolumes: number;
+  numberOfChapters: number;
+};
+
+export type MangaVolume = {
+  volume: string;
+  count: number;
+  chapters: MangaChapter[];
+};
+
+export type MangaChapter = {
+  chapter: string;
+  id: string;
+  baseUrl: string;
+  hash: string;
+  pages: string[];
+  pagesRead: string[];
+  other: any[];
+  count: number;
+  volume: string;
+};
+
 export enum NetworkStatus {
   IDLING = "Idling",
   PENDING = "loading",
   FAILED = "error",
   SUCCESS = "Success",
 }
-
-interface IMangaDetails {
-  randomManga: MangaDetails;
-  allMangas: MangaDetails[];
-  randomMangaNetwork_Status: NetworkStatus;
-  allMangaNetwork_Status: NetworkStatus;
-  coverIMG_NetworkStatus: NetworkStatus;
-}
-const initialState: IMangaDetails = {
-  randomManga: {} as MangaDetails,
-  allMangas: [{} as MangaDetails],
-  randomMangaNetwork_Status: NetworkStatus.IDLING,
-  allMangaNetwork_Status: NetworkStatus.IDLING,
-  coverIMG_NetworkStatus: NetworkStatus.IDLING,
-};
