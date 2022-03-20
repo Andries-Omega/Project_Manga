@@ -12,6 +12,8 @@ module.exports = {
     'react-app'
   ],
   parser: '@typescript-eslint/parser',
+  files: ['*.ts', '*.tsx'],
+  
   parserOptions: {
     project: './tsconfig.json',
     
@@ -31,6 +33,7 @@ module.exports = {
       }
     }
   },
+
   rules: {
     "react/react-in-jsx-scope": "off",
     "no-param-reassign": [2, { "props": false }]
