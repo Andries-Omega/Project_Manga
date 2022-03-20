@@ -1,12 +1,12 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import { RootState } from '../../store';
+import { RootState } from "../../store";
 
-import { setOpenedPage } from '../ReadingManga_Store/ReadingManga_Store';
-import NoChapter from './NoChapter';
+import { setOpenedPage } from "../ReadingManga_Store/ReadingManga_Store";
+import NoChapter from "./NoChapter";
 
 export default function Pages() {
   const [listOfPages, setListOfPages] = useState(false);
@@ -60,7 +60,7 @@ export default function Pages() {
       <button
         type="button"
         className={`w-full bg-blue-500  duration-300 h-10 rounded-md text-${
-          darkMode ? 'black' : 'white'
+          darkMode ? "black" : "white"
         }`}
         onClick={() => {
           setListOfPages(!listOfPages);
@@ -70,7 +70,7 @@ export default function Pages() {
         <span>
           <i
             className={`fa-solid fa-caret-${
-              listOfPages ? 'up' : 'down'
+              listOfPages ? "up" : "down"
             } float-right mr-8 duration-200`}
           />
         </span>
@@ -81,10 +81,10 @@ export default function Pages() {
             role="button"
             aria-hidden="true"
             className={`text-lg justify-center hover:scale-110 duration-500 ${
-              darkMode ? ' hover:bg-slate-500' : 'hover:bg-slate-50'
+              darkMode ? " hover:bg-slate-500" : "hover:bg-slate-50"
             }
                mb-5 border-[1px] border-${
-                 darkMode ? 'white' : 'black'
+                 darkMode ? "white" : "black"
                } h-10 flex items-center border-x-0 mr-2 ml-2 cursor-pointer`}
             onClick={() => {
               dispatch(setOpenedPage(i));
@@ -100,9 +100,9 @@ export default function Pages() {
       <div
         className={`mt-2 ${
           listOfPages
-            ? 'hidden'
-            : ' w-full  flex justify-around mb-3  items-center overflow-y-auto '
-        }  border-[1px] border-${darkMode ? 'white' : 'black'} rounded-md`}
+            ? "hidden"
+            : " w-full  flex justify-around mb-3  items-center overflow-y-auto "
+        }  border-[1px] border-${darkMode ? "white" : "black"} rounded-md`}
       >
         <div
           role="button"
@@ -135,11 +135,11 @@ export default function Pages() {
 
 function listOfPagesClass(listOfPages: boolean, darkMode: boolean): string {
   let lopClass = listOfPages
-    ? 'h-[550px] w-full mt-2 rounded-md overflow-y-auto border-[1px] overflow-x-hidden '
-    : 'hidden ';
+    ? "h-[550px] w-full mt-2 rounded-md overflow-y-auto border-[1px] overflow-x-hidden "
+    : "hidden ";
   lopClass += darkMode
-    ? 'border-white bg-slate-800'
-    : 'border-black bg-slate-200';
+    ? "border-white bg-slate-800"
+    : "border-black bg-slate-200";
 
   return lopClass;
 }

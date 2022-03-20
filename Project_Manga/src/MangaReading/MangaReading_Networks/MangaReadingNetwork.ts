@@ -2,12 +2,12 @@ import {
   createMangaInformation,
   createMangaPages,
   createRandomMangaData,
-} from '../../CommonFunctions';
+} from "../../CommonFunctions";
 import {
   MangaChapter,
   MangaDetails,
   MangaReadInfomation,
-} from '../../Model/Globase_Types';
+} from "../../Model/Globase_Types";
 
 export const getMangaDetails = async (mangaID: string): Promise<MangaDetails> =>
   fetch(`https://api.mangadex.org/manga/${mangaID}`)

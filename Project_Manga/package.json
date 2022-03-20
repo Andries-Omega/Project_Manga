@@ -2,10 +2,12 @@
   "name": "project-manga",
   "private": true,
   "version": "0.0.0",
+  
   "scripts": {
     "dev": "vite --open",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pretty": "prettier --write \"./**/*.{js,ts,tsx,css}\"" 
   },
   
   "dependencies": {

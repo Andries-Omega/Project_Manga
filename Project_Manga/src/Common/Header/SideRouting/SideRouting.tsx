@@ -1,5 +1,5 @@
-import DesktopSideRouting from './DesktopSideRouting';
-import MobileSiteRouting from './MobileSiteRouting';
+import DesktopSideRouting from "./DesktopSideRouting";
+import MobileSiteRouting from "./MobileSiteRouting";
 
 export default function SideRouting() {
   return (

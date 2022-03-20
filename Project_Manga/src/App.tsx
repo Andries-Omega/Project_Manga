@@ -1,10 +1,10 @@
-import { useSelector } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import ScrollUp from './Common/ScrollUp/ScrollUp';
-import Header from './Common/Header/Header';
-import Home from './Home/Home';
-import MangaReading from './MangaReading/MangaReading';
-import { RootState } from './store';
+import { useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import ScrollUp from "./Common/ScrollUp/ScrollUp";
+import Header from "./Common/Header/Header";
+import Home from "./Home/Home";
+import MangaReading from "./MangaReading/MangaReading";
+import { RootState } from "./store";
 
 export default function App() {
   const darkMode = useSelector(
@@ -16,8 +16,8 @@ export default function App() {
       <div
         className={
           darkMode
-            ? 'z-10 bg-slate-700 ease-in duration-500 md:pl-5'
-            : 'z-10 bg-white ease-in duration-500 md:pl-5'
+            ? "z-10 bg-slate-700 ease-in duration-500 md:pl-5"
+            : "z-10 bg-white ease-in duration-500 md:pl-5"
         }
       >
         <Routes>

@@ -44,8 +44,8 @@ export type MangaChapter = {
 };
 
 export enum NetworkStatus {
-  IDLING = 'Idling',
-  PENDING = 'loading',
-  FAILED = 'error',
-  SUCCESS = 'Success',
+  IDLING = "Idling",
+  PENDING = "loading",
+  FAILED = "error",
+  SUCCESS = "Success",
 }

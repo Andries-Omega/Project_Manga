@@ -1,18 +1,18 @@
-import { useQuery } from 'react-query';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { NetworkStatus } from '../../Model/Globase_Types';
-import { RootState } from '../../store';
+import { useQuery } from "react-query";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { NetworkStatus } from "../../Model/Globase_Types";
+import { RootState } from "../../store";
 
 import {
   getRandomManga,
   getRandomMangaCover,
-} from '../Network_Requests/HomeNetworks';
+} from "../Network_Requests/HomeNetworks";
 
 export default function HeadlineManga() {
   const navigate = useNavigate();
   const { data: randomMangaData, status: randoMangaStatus } = useQuery(
-    'random_manga',
+    "random_manga",
     getRandomManga,
     { refetchOnWindowFocus: false }
   );
@@ -22,8 +22,8 @@ export default function HeadlineManga() {
   const mangaCoverID = randomMangaData?.mangaCover_ArtID;
 
   const { data: randomMangaCover, status: randomMangaCoverStatus } = useQuery(
-    ['random_manga_cover', mangaCoverID],
-    () => getRandomMangaCover(mangaCoverID || ''),
+    ["random_manga_cover", mangaCoverID],
+    () => getRandomMangaCover(mangaCoverID || ""),
 
     {
       enabled: !!mangaCoverID,
@@ -55,8 +55,8 @@ export default function HeadlineManga() {
         <h1
           className={
             darkMode
-              ? 'text-lg text-red-500 text-center mt-5'
-              : ' text-lg text-red-600 text-center mt-5'
+              ? "text-lg text-red-500 text-center mt-5"
+              : " text-lg text-red-600 text-center mt-5"
           }
         >
           Network Error
@@ -76,7 +76,7 @@ export default function HeadlineManga() {
       >
         <div
           className={`bg-${
-            darkMode ? 'black' : 'white'
+            darkMode ? "black" : "white"
           } w-full h-52 md:h-96 bg-opacity-50`}
         />
         <div className=" flex  ">
@@ -91,7 +91,7 @@ export default function HeadlineManga() {
           <div className="mt-5">
             <h1
               className={`text-${
-                darkMode ? 'white' : 'black'
+                darkMode ? "white" : "black"
               } text-lg md:text-2xl font-mono mb-8`}
             >
               {randomMangaData?.mangaTitle}

@@ -1,12 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
-import { QueryClientProvider, QueryClient } from 'react-query';
-import App from './App';
-import { store } from './store';
+import { QueryClientProvider, QueryClient } from "react-query";
+import App from "./App";
+import { store } from "./store";
 
 const queryClient = new QueryClient();
 ReactDOM.render(
@@ -20,5 +20,5 @@ ReactDOM.render(
     </BrowserRouter>
   </React.StrictMode>,
 
-  document.getElementById('root')
+  document.getElementById("root")
 );

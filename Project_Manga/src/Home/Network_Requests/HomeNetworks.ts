@@ -1,5 +1,5 @@
-import { createAllMangas, createRandomMangaData } from '../../CommonFunctions';
-import { MangaDetails } from '../../Model/Globase_Types';
+import { createAllMangas, createRandomMangaData } from "../../CommonFunctions";
+import { MangaDetails } from "../../Model/Globase_Types";
 
 export const getRandomManga = async () =>
   fetch(`https://api.mangadex.org/manga/random`)
@@ -25,7 +25,7 @@ export const getRandomMangaCover = async (mangaCoverID: string): Promise<any> =>
   fetch(`https://api.mangadex.org/cover/${mangaCoverID}`)
     .then((res) => res.json())
     .then((res) => {
-      const fileName = res.data.attributes.fileName || '';
+      const fileName = res.data.attributes.fileName || "";
       return { mangaCover_IMG: fileName };
     })
     .catch((err) => {

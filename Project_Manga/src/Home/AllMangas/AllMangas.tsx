@@ -1,22 +1,22 @@
-import { useQuery } from 'react-query';
-import { MangaDetails, NetworkStatus } from '../../Model/Globase_Types';
+import { useQuery } from "react-query";
+import { MangaDetails, NetworkStatus } from "../../Model/Globase_Types";
 
 import {
   getAllMangas,
   getListOfMangasIMGs,
-} from '../Network_Requests/HomeNetworks';
+} from "../Network_Requests/HomeNetworks";
 
-import MangaCard from './MangaCart';
+import MangaCard from "./MangaCart";
 
 export default function AllManga() {
   const { data: allManga, status: allMangaStatus } = useQuery(
-    'all_manga',
+    "all_manga",
     () => getAllMangas(),
     { refetchOnWindowFocus: false }
   );
 
   const { data: allMangaCover, status: allMangaCoverStatus } = useQuery(
-    ['all_manga_cover', allManga],
+    ["all_manga_cover", allManga],
     () => getListOfMangasIMGs(allManga || []),
     {
       enabled: !!allManga,

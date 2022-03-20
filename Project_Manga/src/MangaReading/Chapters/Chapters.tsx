@@ -1,7 +1,7 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store';
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../store";
 
-import { setOpenedChapter } from '../ReadingManga_Store/ReadingManga_Store';
+import { setOpenedChapter } from "../ReadingManga_Store/ReadingManga_Store";
 
 export default function Chapters() {
   const openedChapter = useSelector(
@@ -28,9 +28,9 @@ export default function Chapters() {
   return (
     <div
       className={`pt-5 h-[550px] border-[1px] border-${
-        darkMode ? 'white' : 'black'
+        darkMode ? "white" : "black"
       } rounded-md mt-2 ${
-        volumeSelection ? 'hidden' : ''
+        volumeSelection ? "hidden" : ""
       } overflow-y-auto overflow-x-hidden`}
     >
       {filteredChapters.map((chapter) => (
@@ -38,14 +38,14 @@ export default function Chapters() {
           role="button"
           aria-hidden="true"
           className={`text-lg justify-center ${
-            chapter.id === openedChapter.id ? 'scale-110' : ''
+            chapter.id === openedChapter.id ? "scale-110" : ""
           } hover:scale-110 duration-500 ${
-            darkMode ? ' hover:bg-slate-500' : 'hover:bg-slate-50'
+            darkMode ? " hover:bg-slate-500" : "hover:bg-slate-50"
           }
          mb-5 border-[1px] border-${
-           darkMode ? 'white' : 'black'
+           darkMode ? "white" : "black"
          } h-16  border-x-0 mr-4 ml-4 cursor-pointer text-center ${
-            chapter.pages ? '' : 'items-center flex'
+            chapter.pages ? "" : "items-center flex"
           }`}
           onClick={() => {
             disptach(setOpenedChapter(chapter));

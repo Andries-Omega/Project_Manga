@@ -1,7 +1,7 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { RootState } from '../../../store';
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { RootState } from "../../../store";
 
 export default function MobileSiteRouting() {
   const darkMode = useSelector(
@@ -15,14 +15,14 @@ export default function MobileSiteRouting() {
   return (
     <div
       className={`fixed bottom-0 inset-x-0 flex justify-around items-center ${
-        darkMode ? 'bg-gray-800' : 'bg-slate-200'
+        darkMode ? "bg-gray-800" : "bg-slate-200"
       } rounded-t-xl h-12`}
     >
       <Link
         to="/"
         className={`${chooseNavClass(
           currentPage,
-          '/',
+          "/",
           darkMode
         )} text-xl cursor-pointer`}
       >
@@ -35,7 +35,7 @@ export default function MobileSiteRouting() {
         to="#"
         className={`${chooseNavClass(
           currentPage,
-          'create_manga',
+          "create_manga",
           darkMode
         )} text-xl cursor-pointer `}
       >
@@ -48,7 +48,7 @@ export default function MobileSiteRouting() {
         to="#"
         className={`${chooseNavClass(
           currentPage,
-          'liked_mangas',
+          "liked_mangas",
           darkMode
         )} text-xl cursor-pointer  `}
       >
@@ -61,7 +61,7 @@ export default function MobileSiteRouting() {
         to="#"
         className={`${chooseNavClass(
           currentPage,
-          'read_manga',
+          "read_manga",
           darkMode
         )} text-xl cursor-pointer `}
       >
@@ -78,12 +78,12 @@ function chooseNavClass(
   checkCurrent: string,
   darkMode: boolean
 ): string {
-  let theClass = '';
-  const isCurrentPage = currentPage === checkCurrent ? 'text-blue-500' : '';
+  let theClass = "";
+  const isCurrentPage = currentPage === checkCurrent ? "text-blue-500" : "";
   if (!isCurrentPage) {
     theClass = darkMode
-      ? 'text-white hover:text-blue-500'
-      : 'text-black hover:text-blue-500';
+      ? "text-white hover:text-blue-500"
+      : "text-black hover:text-blue-500";
   } else {
     theClass = isCurrentPage;
   }

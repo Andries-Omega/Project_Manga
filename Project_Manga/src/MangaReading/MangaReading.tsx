@@ -1,24 +1,24 @@
-import { useEffect } from 'react';
-import { useQuery } from 'react-query';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { MangaChapter, NetworkStatus } from '../Model/Globase_Types';
-import { RootState } from '../store';
-import AboutManga from './About_Manga/AboutManga';
-import Chapters from './Chapters/Chapters';
+import { useEffect } from "react";
+import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { MangaChapter, NetworkStatus } from "../Model/Globase_Types";
+import { RootState } from "../store";
+import AboutManga from "./About_Manga/AboutManga";
+import Chapters from "./Chapters/Chapters";
 import {
   getMangaChapters,
   getMangaDetails,
   getMangaPages,
-} from './MangaReading_Networks/MangaReadingNetwork';
-import Pages from './Pages/Pages';
+} from "./MangaReading_Networks/MangaReadingNetwork";
+import Pages from "./Pages/Pages";
 import {
   setChapters,
   setOpenedChapter,
   setOpenedManga,
   setVolumes,
-} from './ReadingManga_Store/ReadingManga_Store';
-import Volumes from './Volumes/Volumes';
+} from "./ReadingManga_Store/ReadingManga_Store";
+import Volumes from "./Volumes/Volumes";
 
 export default function MangaReading() {
   const { mangaID } = useParams();
@@ -34,15 +34,15 @@ export default function MangaReading() {
   );
 
   const { data: readingMangaData, status: readingMangaStatus } = useQuery(
-    'reading_manga',
-    () => getMangaDetails(mangaID || ''),
+    "reading_manga",
+    () => getMangaDetails(mangaID || ""),
     { refetchOnWindowFocus: false }
   );
 
   const { data: readingMangaChapters, status: readingMangaChaptersStatus } =
     useQuery(
-      ['reading_manga_Chapters', mangaID],
-      () => getMangaChapters(mangaID || ''),
+      ["reading_manga_Chapters", mangaID],
+      () => getMangaChapters(mangaID || ""),
       {
         enabled: !!readingMangaData,
         refetchOnWindowFocus: false,
@@ -50,7 +50,7 @@ export default function MangaReading() {
     );
 
   const { refetch: mangaPagesRefetch } = useQuery(
-    ['mangaPages', openedChapter],
+    ["mangaPages", openedChapter],
     () => getMangaPages(openedChapter),
     {
       refetchOnWindowFocus: false,
@@ -94,7 +94,7 @@ export default function MangaReading() {
     <div>
       <div
         className={`grid md:grid-cols-3 p-5 gap-5 mb-12   text-${
-          darkMode ? 'white' : 'black'
+          darkMode ? "white" : "black"
         }`}
       >
         {/* Pages And About */}

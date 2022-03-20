@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface GlobalStore {
   showFooter: boolean;
@@ -13,13 +13,13 @@ const initialState: GlobalStore = {
   showFooter: false,
   darkMode: false,
   sideHeaderMouseHover: false,
-  currentPage: '/',
+  currentPage: "/",
   mobileBurgerOn: false,
   mobileSearchOn: false,
 };
 
 export const globalSlice = createSlice({
-  name: 'globalState',
+  name: "globalState",
   initialState,
   reducers: {
     setDarkMode: (state, action: PayloadAction<boolean>) => {

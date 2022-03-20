@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { RootState } from '../../store';
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { RootState } from "../../store";
 
 export default function MangaCard(props: any) {
   /**
    * So i got a bug that i managed to fix by forcing react to re render after certain seconds. This to help the cover image show
    */
-  const [, setState] = useState('');
+  const [, setState] = useState("");
   setTimeout(() => {
-    setState('Just So The COmponent re renders');
+    setState("Just So The COmponent re renders");
   }, 2000);
 
   /**
@@ -27,8 +27,8 @@ export default function MangaCard(props: any) {
       <div
         className={`${
           darkMode
-            ? 'bg-slate-700 border-gray-400 border-2 border-l-0'
-            : 'bg-white'
+            ? "bg-slate-700 border-gray-400 border-2 border-l-0"
+            : "bg-white"
         } md:grid grid-cols-1 md:grid-cols-2 gap-5 rounded-2xl shadow-2xl h-80 hidden`}
       >
         <div
@@ -40,12 +40,12 @@ export default function MangaCard(props: any) {
             backgroundImage: `url('${
               mangaDetails.mangaCover_IMG
                 ? mangaDetails.mangaCover_IMG
-                : '../../assets/images/manga_cover_art.png'
+                : "../../assets/images/manga_cover_art.png"
             }')`,
           }}
           onClick={() => navigate(`/manga_read/${mangaDetails?.mangaID}`)}
         />
-        <div className={`pr-5 ${darkMode ? ' text-slate-50' : 'text-black'}`}>
+        <div className={`pr-5 ${darkMode ? " text-slate-50" : "text-black"}`}>
           <h3 className="mt-2 h-16 text-lg font-bold">
             {mangaDetails.mangaTitle}
           </h3>
@@ -66,7 +66,7 @@ export default function MangaCard(props: any) {
       {/* Mobile View */}
       <div
         className={`md:hidden grid gap-5 bg-${
-          darkMode ? 'slate-700 border-gray-400 border-2 border-t-0' : 'white'
+          darkMode ? "slate-700 border-gray-400 border-2 border-t-0" : "white"
         }  rounded-2xl shadow-2xl mt-5`}
       >
         <div
@@ -76,11 +76,11 @@ export default function MangaCard(props: any) {
             backgroundImage: `url('${
               mangaDetails.mangaCover_IMG
                 ? mangaDetails.mangaCover_IMG
-                : '../../assets/images/mobile_cover_art_not_available.png'
+                : "../../assets/images/mobile_cover_art_not_available.png"
             }')`,
           }}
         />
-        <div className={`text-${darkMode ? 'white' : 'black'} pl-7 pr-3 pb-5`}>
+        <div className={`text-${darkMode ? "white" : "black"} pl-7 pr-3 pb-5`}>
           <h3 className="h-16 text-lg font-bold">{mangaDetails.mangaTitle}</h3>
           <div className=" overflow-y-auto h-40">
             <p className=" mr-3 break-all">{mangaDetails.mangaDescription}</p>
