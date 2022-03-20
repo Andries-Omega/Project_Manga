@@ -1,5 +1,3 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
 /**
  * For list of mangas
  */
@@ -46,8 +44,8 @@ export type MangaChapter = {
 };
 
 export enum NetworkStatus {
-  IDLING = "Idling",
-  PENDING = "loading",
-  FAILED = "error",
-  SUCCESS = "Success",
+  IDLING = 'Idling',
+  PENDING = 'loading',
+  FAILED = 'error',
+  SUCCESS = 'Success',
 }

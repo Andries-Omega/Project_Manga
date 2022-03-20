@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface GlobalStore {
   showFooter: boolean;
@@ -13,13 +13,13 @@ const initialState: GlobalStore = {
   showFooter: false,
   darkMode: false,
   sideHeaderMouseHover: false,
-  currentPage: "/",
+  currentPage: '/',
   mobileBurgerOn: false,
   mobileSearchOn: false,
 };
 
 export const globalSlice = createSlice({
-  name: "globalState",
+  name: 'globalState',
   initialState,
   reducers: {
     setDarkMode: (state, action: PayloadAction<boolean>) => {
@@ -37,13 +37,15 @@ export const globalSlice = createSlice({
     setMobileBurger: (state, action: PayloadAction<boolean>) => {
       if (action.payload) {
         state.mobileSearchOn = false;
-      } //just to make sure they don't search while nav bar open
+      }
+      // just to make sure they don't search while nav bar open
       state.mobileBurgerOn = action.payload;
     },
     setMobileSearch: (state, action: PayloadAction<boolean>) => {
       if (action.payload) {
         state.mobileBurgerOn = false;
-      } //just to make sure they don't search while nav bar open
+      }
+      // just to make sure they don't search while nav bar open
       state.mobileSearchOn = action.payload;
     },
   },
