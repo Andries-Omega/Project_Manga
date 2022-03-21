@@ -1,11 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { useQuery } from 'react-query';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getListOfMangasIMGs } from '../../../../Home/Network_Requests/HomeNetworks';
-import { NetworkStatus } from '../../../../Model/Globase_Types';
+import {
+  setOpenedChapter,
+  setOpenedPage,
+  setOpenedVolume,
+} from '../../../../MangaReading/ReadingManga_Store/ReadingManga_Store';
+import {
+  MangaChapter,
+  MangaVolume,
+  NetworkStatus,
+} from '../../../../Model/Globase_Types';
 import { RootState } from '../../../../store';
 import { getSearchMangas } from '../../../CommonNetwork/CommonNetwork';
+import { setSearching } from '../../../GlobalStateStore/GlobaStore';
 import { SearchContext } from './Search';
 
 export default function SearchResults() {
@@ -16,6 +25,7 @@ export default function SearchResults() {
   );
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { data: searchedMangas, status: searchedMangasStatus } = useQuery(
     ['searchedMangasKey', searchTitle],
     () => getSearchMangas(searchTitle),
@@ -81,14 +91,20 @@ export default function SearchResults() {
                mb-5 border-[1px] border-${
                  darkMode ? 'white' : 'black'
                } h-fit grid place-items-start border-x-0 mr-2 ml-2 cursor-pointer px-6`}
-              onClick={() => {}}
+              onClick={() => {
+                dispatch(setSearching(false));
+                // make sure the opened chapter and volume section is null before redirection
+                dispatch(setOpenedVolume({} as MangaVolume));
+                dispatch(setOpenedChapter({} as MangaChapter));
+                dispatch(setOpenedPage(0));
+                navigate(`manga_read/${manga.mangaID}`);
+              }}
               key={`${manga.mangaID}`}
             >
               <h1 className=" text-xl mb-1">{manga.mangaTitle}</h1>
               <p className=" text-base mb-1">Rating: {manga.mangaRating}</p>
               <div className="flex justify-between w-full">
                 <p className=" text-base mb-1">Status: {manga.mangaStatus}</p>
-
                 <p
                   className={`${manga.mangaYear ? 'text-base mb-1' : 'hidden'}`}
                 >
