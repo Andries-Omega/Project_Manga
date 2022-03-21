@@ -11,7 +11,7 @@ import MangaCard from './MangaCart';
 
 export default function AllManga() {
   const { data: allManga, status: allMangaStatus } = useQuery(
-    'all_manga',
+    'all_mangaKey',
     () => getAllMangas(),
     { refetchOnWindowFocus: false }
   );
@@ -51,8 +51,8 @@ export default function AllManga() {
       <div className="grid grid-cols-1 gap-y-32 place-content-center pb-32 md:grid-cols-2">
         {allMangaCover &&
           allMangaCover?.map((manga: MangaDetails) => (
-            <div className="md:pl-8">
-              <MangaCard key={manga.mangaID} manga={manga} />
+            <div className="md:pl-8" key={manga.mangaID}>
+              <MangaCard manga={manga} key="AllMangaOnHome" />
             </div>
           ))}
       </div>

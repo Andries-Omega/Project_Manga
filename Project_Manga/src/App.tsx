@@ -5,6 +5,7 @@ import Header from './Common/Header/Header';
 import Home from './Home/Home';
 import MangaReading from './MangaReading/MangaReading';
 import { RootState } from './store';
+import Authentications from './Authentication/Authentications';
 
 export default function App() {
   const darkMode = useSelector(
@@ -25,6 +26,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/manga_read/:mangaID" element={<MangaReading />} />
+          <Route path="/authentication/:type" element={<Authentications />} />
         </Routes>
       </div>
 

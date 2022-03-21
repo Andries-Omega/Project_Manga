@@ -16,9 +16,10 @@ export const getListOfMangasIMGs = async (
   if (!listOfMangas) return [] as MangaDetails[];
 
   listOfMangas.map((manga) =>
-    getRandomMangaCover(manga.mangaCover_ArtID).then(
-      (res) =>
-        (manga.mangaCover_IMG = `https://uploads.mangadex.org/covers/${manga.mangaID}/${res}`)
+    getRandomMangaCover(manga.mangaCover_ArtID).then((res) =>
+      res
+        ? (manga.mangaCover_IMG = `https://uploads.mangadex.org/covers/${manga.mangaID}/${res}`)
+        : (manga.mangaCover_IMG = '')
     )
   );
 
@@ -32,8 +33,8 @@ export const getRandomMangaCover = async (
     .then((res) => {
       return String(res.data.attributes.fileName) || '';
     })
-    .catch((err) => {
-      throw new Error(err);
+    .catch(() => {
+      return ''; // this implies the cover image couldn't be retrieved
     });
 
 export const getAllMangas = async (): Promise<MangaDetails[]> =>

@@ -81,7 +81,11 @@ export default function HeadlineManga() {
           <img
             aria-hidden="true"
             alt=""
-            src={`https://uploads.mangadex.org/covers/${randomMangaData?.mangaID}/${randomMangaCover}`}
+            src={`${
+              randomMangaCover
+                ? `https://uploads.mangadex.org/covers/${randomMangaData?.mangaID}/${randomMangaCover}`
+                : '../../assets/images/mobile_cover_art_not_available.png'
+            }`}
             className="mx-5 -mt-20 w-40 h-52 rounded-md duration-500 hover:scale-110 cursor-pointer md:mx-10 
                         md:-mt-32  md:w-52 md:h-64"
             onClick={() => navigate(`/manga_read/${randomMangaData?.mangaID}`)}

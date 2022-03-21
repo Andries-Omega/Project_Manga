@@ -13,7 +13,7 @@ interface GlobalStore {
 
 const initialState: GlobalStore = {
   showFooter: false,
-  darkMode: false,
+  darkMode: true,
   sideHeaderMouseHover: false,
   currentPage: '/',
   mobileBurgerOn: false,

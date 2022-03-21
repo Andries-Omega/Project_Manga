@@ -63,9 +63,7 @@ export default function Search() {
         <button
           type="button"
           className={`bg-blue-500 w-10 h-10
-                                    hover:bg-blue-700  text-${
-                                      darkMode ? 'slate-800' : 'white'
-                                    }`}
+                                    hover:bg-blue-700  text-white`}
         >
           <i className="text-lg fa-solid fa-magnifying-glass" />
         </button>

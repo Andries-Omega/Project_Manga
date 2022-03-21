@@ -45,34 +45,44 @@ export default function MangaReading() {
     { refetchOnWindowFocus: false }
   );
 
-  const mangaCoverID = readingMangaData?.mangaCover_ArtID;
-
-  const { data: readingMangaCover, status: readingMangaCoverStatus } = useQuery(
-    ['reading_manga_cover', mangaCoverID],
-    () =>
-      getRandomMangaCover(mangaCoverID || '').then((res) =>
-        dispatch(
-          setOpenedManga({
-            ...readingMangaData,
-            mangaCover_IMG: res || '',
-          } as MangaDetails)
-        )
-      ),
-    {
-      enabled: !!mangaCoverID,
-      refetchOnWindowFocus: false,
-    }
-  );
-
   const { data: readingMangaChapters, status: readingMangaChaptersStatus } =
     useQuery(
       ['reading_manga_Chapters', mangaID],
       () => getMangaChapters(mangaID || ''),
       {
-        enabled: !!readingMangaCover,
+        enabled: !!readingMangaData,
         refetchOnWindowFocus: false,
       }
     );
+
+  const mangaCoverID = readingMangaData?.mangaCover_ArtID;
+
+  const { status: readingMangaCoverStatus } = useQuery(
+    ['reading_manga_cover', mangaCoverID],
+    () =>
+      getRandomMangaCover(mangaCoverID || '')
+        .then((res) =>
+          dispatch(
+            setOpenedManga({
+              ...readingMangaData,
+              mangaCover_IMG: res || '',
+            } as MangaDetails)
+          )
+        )
+        .catch((err) => {
+          console.clear(); // the 404 error is being resolved below, so there's no need to to show it on
+          dispatch(
+            setOpenedManga({
+              ...readingMangaData,
+              mangaCover_IMG: '',
+            } as MangaDetails)
+          );
+        }),
+    {
+      enabled: !!readingMangaChapters && !!mangaCoverID,
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const { refetch: mangaPagesRefetch } = useQuery(
     ['mangaPages', openedChapter],
@@ -114,7 +124,7 @@ export default function MangaReading() {
     return <h1>Failed</h1>;
   }
 
-  if (readingMangaData && readingMangaCover && readingMangaChapters) {
+  if (readingMangaData && readingMangaChapters) {
     dispatch(setVolumes(readingMangaChapters?.mangaVolumes));
     dispatch(setChapters(readingMangaChapters?.mangaChapters));
   }
@@ -138,7 +148,7 @@ export default function MangaReading() {
           <AboutManga key="TheMangaAbout" />
         </div>
         <div className="col-span-3">
-          <AllManga key="readingAllManga" />
+          <AllManga key="AllMangaOnReading" />
         </div>
       </div>
     </div>

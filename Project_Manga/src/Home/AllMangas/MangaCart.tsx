@@ -15,8 +15,8 @@ export default function MangaCard(props: any) {
    */
   const [, setState] = useState('');
   setTimeout(() => {
-    setState('Just So The COmponent re renders');
-  }, 2000);
+    setState('Just So The Component re renders (and images show)');
+  }, 3000);
 
   /**
    * Real code starts here:
