@@ -132,7 +132,7 @@ export default function MangaReading() {
   return (
     <div>
       <div
-        className={`grid md:grid-cols-3 p-5 gap-5 mb-12   text-${
+        className={`grid md:grid-cols-3 p-5 gap-5 pb-12 text-${
           darkMode ? 'white' : 'black'
         }`}
       >
