@@ -11,6 +11,10 @@ export type MangaDetails = {
   mangaArtist: string;
   mangaCover_ArtID: string;
   mangaCover_IMG: string;
+  mangaStatus: string;
+  mangaState: string;
+  mangaYear: number;
+  mangaTags: [];
 };
 
 /**
@@ -44,8 +48,8 @@ export type MangaChapter = {
 };
 
 export enum NetworkStatus {
-  IDLING = "Idling",
-  PENDING = "loading",
-  FAILED = "error",
-  SUCCESS = "Success",
+  IDLING = 'Idling',
+  PENDING = 'loading',
+  FAILED = 'error',
+  SUCCESS = 'Success',
 }

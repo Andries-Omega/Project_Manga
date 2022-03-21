@@ -79,6 +79,7 @@ export default function MangaCard(props: any) {
                 : "../../assets/images/mobile_cover_art_not_available.png"
             }')`,
           }}
+          onClick={() => navigate(`/manga_read/${mangaDetails?.mangaID}`)}
         />
         <div className={`text-${darkMode ? "white" : "black"} pl-7 pr-3 pb-5`}>
           <h3 className="h-16 text-lg font-bold">{mangaDetails.mangaTitle}</h3>

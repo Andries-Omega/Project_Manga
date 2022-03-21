@@ -31,7 +31,10 @@ export default function Volumes() {
         }`}
         onClick={() => dispatch(setVolumeSelection(!volumeSelection))}
       >
-        Volume {openedVolume.volume || "?"}
+        Volume{" "}
+        {openedVolume.volume
+          ? openedVolume.volume + " / " + volumes.length
+          : "?"}
         <span>
           <i
             className={`fa-solid fa-caret-${

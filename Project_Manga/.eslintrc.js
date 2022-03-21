@@ -4,34 +4,22 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:tailwindcss/recommended",
-    "prettier",
-    "react-app",
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb-typescript',
   ],
-  parser: "@typescript-eslint/parser",
-  files: ["*.ts", "*.tsx"],
-
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    project: "./tsconfig.json",
-
-    ecmaVersion: "latest",
-    sourceType: "module",
-  },
-  plugins: ["react", "@typescript-eslint", "tailwindcss", "prettier"],
-  settings: {
-    "import/resolver": {
-      typescript: {
-        alwaysTryTypes: true,
-      },
+    ecmaFeatures: {
+      jsx: true,
     },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
-
+  plugins: [
+    'react',
+    '@typescript-eslint',
+  ],
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "no-param-reassign": [2, { props: false }],
-    "no-implicit-any": true,
   },
 };

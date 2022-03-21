@@ -1,13 +1,13 @@
 /* eslint-disable tailwindcss/no-custom-classname */
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { RootState } from "../../../store";
-import { setMobileSearch } from "../../GlobalStateStore/GlobaStore";
-import BurgerMenu from "./MobileBurger/BurgerMenu";
-import Search from "./Search/Search";
-import SignIn from "./SignIn/SignIn";
-import SignUp from "./SignUp/SignUp";
-import StateColorManaga from "./StateManage/StateColorManaga";
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { RootState } from '../../../store';
+import { setMobileSearch } from '../../GlobalStateStore/GlobaStore';
+import BurgerMenu from './MobileBurger/BurgerMenu';
+import Search from './Search/Search';
+import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
+import StateColorManaga from './StateManage/StateColorManaga';
 
 export default function TopRouting() {
   const darkMode = useSelector(
@@ -24,18 +24,18 @@ export default function TopRouting() {
       <div
         className={
           darkMode
-            ? "bg-gray-800 lg:flex justify-around p-2 w-full ease-in duration-500 hidden"
-            : "bg-slate-200 lg:flex justify-around p-2 w-full ease-in duration-500 hidden"
+            ? 'bg-gray-800 md:flex justify-around p-2 w-full ease-in duration-500 hidden'
+            : 'bg-slate-200 md:flex justify-around p-2 w-full ease-in duration-500 hidden'
         }
       >
         <img
           onClick={() => {
-            navigate("/");
+            navigate('/');
           }}
           src={
             darkMode
-              ? "assets/images/TheLogo_DarkMode.png"
-              : "assets/images/TheLogo.png"
+              ? 'assets/images/TheLogo_DarkMode.png'
+              : 'assets/images/TheLogo.png'
           }
           className="w-16 h-16 cursor-pointer"
           alt=""
@@ -58,8 +58,8 @@ export default function TopRouting() {
       <div
         className={
           darkMode
-            ? "bg-gray-800 md:hidden justify-between p-2 w-full ease-in duration-500 flex"
-            : "bg-slate-200 md:hidden justify-between p-2 w-full ease-in duration-500 flex"
+            ? 'bg-gray-800 md:hidden justify-between p-2 w-full ease-in duration-500 flex'
+            : 'bg-slate-200 md:hidden justify-between p-2 w-full ease-in duration-500 flex'
         }
       >
         {mobileSearch && (
@@ -67,8 +67,8 @@ export default function TopRouting() {
             type="button"
             className={
               darkMode
-                ? "bg-gray-800 w-10 h-10 text-white"
-                : " bg-slate-200 w-10 h-10 text-gray-800"
+                ? 'bg-gray-800 w-10 h-10 text-white'
+                : ' bg-slate-200 w-10 h-10 text-gray-800'
             }
             onClick={() => {
               dispatch(setMobileSearch(false));
@@ -79,14 +79,14 @@ export default function TopRouting() {
         )}
         <img
           onClick={() => {
-            navigate("/");
+            navigate('/');
           }}
           src={
             darkMode
-              ? "./assets/images/TheLogo_DarkMode.png"
-              : "./assets/images/TheLogo.png"
+              ? './assets/images/TheLogo_DarkMode.png'
+              : './assets/images/TheLogo.png'
           }
-          className={mobileSearch ? "hidden" : "w-12 h-12 ml-5 cursor-pointer"}
+          className={mobileSearch ? 'hidden' : 'w-12 h-12 ml-5 cursor-pointer'}
           alt=""
           aria-hidden="true"
         />

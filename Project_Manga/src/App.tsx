@@ -1,24 +1,26 @@
-import { useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
-import ScrollUp from "./Common/ScrollUp/ScrollUp";
-import Header from "./Common/Header/Header";
-import Home from "./Home/Home";
-import MangaReading from "./MangaReading/MangaReading";
-import { RootState } from "./store";
+import { useSelector } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
+import ScrollUp from './Common/ScrollUp/ScrollUp';
+import Header from './Common/Header/Header';
+import Home from './Home/Home';
+import MangaReading from './MangaReading/MangaReading';
+import { RootState } from './store';
 
 export default function App() {
   const darkMode = useSelector(
     (state: RootState) => state.globalState.darkMode
   );
+  const searching = useSelector(
+    (state: RootState) => state.globalState.searching
+  );
+
   return (
     <div>
       <Header />
       <div
-        className={
-          darkMode
-            ? "z-10 bg-slate-700 ease-in duration-500 md:pl-5"
-            : "z-10 bg-white ease-in duration-500 md:pl-5"
-        }
+        className={`${darkMode ? 'bg-slate-700' : 'bg-white'} ${
+          searching ? 'hidden' : 'z-10 ease-in duration-500 md:pl-5'
+        }`}
       >
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,4 +31,10 @@ export default function App() {
       <ScrollUp />
     </div>
   );
+}
+
+function routersClass(searching: boolean, darkMode: boolean): string {
+  let rClass = searching ? 'hidden' : 'z-10 ease-in duration-500 md:pl-5';
+  rClass += darkMode ? 'bg-slate-700' : 'bg-white';
+  return rClass;
 }

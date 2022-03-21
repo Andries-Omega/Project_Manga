@@ -1,4 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface GlobalStore {
   showFooter: boolean;
@@ -7,19 +8,21 @@ interface GlobalStore {
   currentPage: string;
   mobileBurgerOn: boolean;
   mobileSearchOn: boolean;
+  searching: boolean;
 }
 
 const initialState: GlobalStore = {
   showFooter: false,
   darkMode: false,
   sideHeaderMouseHover: false,
-  currentPage: "/",
+  currentPage: '/',
   mobileBurgerOn: false,
   mobileSearchOn: false,
+  searching: false,
 };
 
 export const globalSlice = createSlice({
-  name: "globalState",
+  name: 'globalState',
   initialState,
   reducers: {
     setDarkMode: (state, action: PayloadAction<boolean>) => {
@@ -48,6 +51,9 @@ export const globalSlice = createSlice({
       // just to make sure they don't search while nav bar open
       state.mobileSearchOn = action.payload;
     },
+    setSearching: (state, action: PayloadAction<boolean>) => {
+      state.searching = action.payload;
+    },
   },
 });
 
@@ -58,6 +64,7 @@ export const {
   setSideMouseHover,
   setMobileBurger,
   setMobileSearch,
+  setSearching,
 } = globalSlice.actions;
 
 export default globalSlice.reducer;

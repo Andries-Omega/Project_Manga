@@ -1,5 +1,6 @@
-import { createAllMangas, createRandomMangaData } from "../../CommonFunctions";
-import { MangaDetails } from "../../Model/Globase_Types";
+// eslint-disable-next-line
+import { createAllMangas, createRandomMangaData } from '../../CommonFunctions';
+import { MangaDetails } from '../../Model/Globase_Types';
 
 export const getRandomManga = async () =>
   fetch(`https://api.mangadex.org/manga/random`)
@@ -13,20 +14,23 @@ export const getListOfMangasIMGs = async (
   listOfMangas: MangaDetails[]
 ): Promise<MangaDetails[]> => {
   if (!listOfMangas) return [] as MangaDetails[];
+
   listOfMangas.map((manga) =>
-    getRandomMangaCover(manga.mangaCover_ArtID).then((res) => {
-      manga.mangaCover_IMG = `https://uploads.mangadex.org/covers/${manga.mangaID}/${res.mangaCover_IMG}`;
-    })
+    getRandomMangaCover(manga.mangaCover_ArtID).then(
+      (res) =>
+        (manga.mangaCover_IMG = `https://uploads.mangadex.org/covers/${manga.mangaID}/${res}`)
+    )
   );
 
   return listOfMangas;
 };
-export const getRandomMangaCover = async (mangaCoverID: string): Promise<any> =>
+export const getRandomMangaCover = async (
+  mangaCoverID: string
+): Promise<string> =>
   fetch(`https://api.mangadex.org/cover/${mangaCoverID}`)
     .then((res) => res.json())
     .then((res) => {
-      const fileName = res.data.attributes.fileName || "";
-      return { mangaCover_IMG: fileName };
+      return String(res.data.attributes.fileName) || '';
     })
     .catch((err) => {
       throw new Error(err);
