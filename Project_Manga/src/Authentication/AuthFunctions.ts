@@ -6,14 +6,17 @@ import {
   UsernameValidity,
 } from './Auth_Store/auth_store';
 
-export function authenticateUsername(username: string): UsernameValidity {
+export function authenticateUsername(
+  username: string,
+  doing: string
+): UsernameValidity {
   let validUsername: UsernameValidity = {
     usernameMessage: 'Please Provide a user name',
     usernameValid: false,
   };
 
   if (username) {
-    if (username.length >= 5 && username.length <= 64) {
+    if (doing === 'signin' || (username.length >= 5 && username.length <= 64)) {
       validUsername.usernameValid = true;
       validUsername.usernameMessage = '';
     } else {

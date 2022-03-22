@@ -24,6 +24,11 @@ export interface SingUpData {
   password: string;
 }
 
+export interface SingInData {
+  username: string;
+  password: string;
+}
+
 const initialState: iSignUp = {
   usernameValid: {} as UsernameValidity,
   emailValid: {} as EmailValidity,

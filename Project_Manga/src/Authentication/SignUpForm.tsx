@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import { useForm } from '@felte/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
@@ -7,7 +7,6 @@ import {
   setEmailValidity,
   setPasswordValidity,
   setUsernameValidity,
-  SingUpData,
 } from './Auth_Store/auth_store';
 import {
   authenticateEmail,
@@ -16,8 +15,15 @@ import {
 } from './AuthFunctions';
 import { useMutation, useQuery } from 'react-query';
 import { signUp } from './Auth_Network/Auth_Network';
+import { NetworkStatus } from '../Model/Globase_Types';
 
 export default function SignUpForm() {
+  const { form } = useForm({
+    onSubmit: (values) => {
+      signUpUser(values);
+    },
+  });
+
   const darkMode = useSelector(
     (state: RootState) => state.globalState.darkMode
   );
@@ -30,17 +36,14 @@ export default function SignUpForm() {
   const passwordValid = useSelector(
     (state: RootState) => state.autheticationState.passwordValid
   );
-  const { mutate: signUpUser } = useMutation(signUp);
+
+  const { mutate: signUpUser, status: signupStatus } = useMutation(signUp);
   const [readyToSubmit, setReadyToSubmit] = useState(false);
   const [confirmedPassword, setConfirmedPassword] = useState(false);
+
   const dispatch = useDispatch();
-  const { form } = useForm({
-    onSubmit: (values) => {
-      signUpUser(values);
-    },
-  });
   const validateUsername = (userName: string) => {
-    dispatch(setUsernameValidity(authenticateUsername(userName)));
+    dispatch(setUsernameValidity(authenticateUsername(userName, 'signup')));
   };
   const validateEmail = (email: string) => {
     dispatch(setEmailValidity(authenticateEmail(email)));
@@ -65,9 +68,13 @@ export default function SignUpForm() {
     usernameValid.usernameValid,
     emailValid.emailValid,
   ]);
+  console.log(signupStatus);
   return (
     <>
-      <form ref={form} className="grid gap-2 pl-6 pr-6 overflow-y-auto">
+      <form
+        ref={form}
+        className="grid gap-2 pl-6 pr-6 overflow-y-auto duration-500 ease-in"
+      >
         <label htmlFor="username" className="text-base ">
           Username:
         </label>
@@ -179,7 +186,9 @@ export default function SignUpForm() {
         <button
           disabled={!readyToSubmit}
           type="submit"
-          className={`w-full text-white h-10 rounded-md mt-4  ${
+          className={`w-full text-white h-10 rounded-md mt-4 ${
+            signupStatus === NetworkStatus.PENDING ? 'animate-pulse' : ''
+          } ${
             readyToSubmit
               ? 'bg-blue-500 hover:bg-blue-700 duration-300'
               : 'bg-blue-300'
@@ -187,6 +196,23 @@ export default function SignUpForm() {
         >
           Sign Up
         </button>
+        <p
+          className={`${
+            signupStatus !== 'idle' ? 'text-sm text-red-400' : 'hidden'
+          }`}
+        >
+          Unable to sign up, actually this form does not work. Please visit:{' '}
+          <span>
+            <a
+              href="https://mangadex.org/account/signup"
+              target="_blank"
+              className=" animate-pulse text-blue-500"
+            >
+              mangadex
+            </a>
+          </span>{' '}
+          To create an account
+        </p>
       </form>
     </>
   );
