@@ -1,12 +1,17 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function SignIn() {
-	return (
-		<>
-			<button
-				className=" bg-slate-200 h-10 text-black w-20 rounded-md shadow-2xl
-                                hover:bg-blue-100"
-			>
-				Sign In
-			</button>
-		</>
-	);
+  const navigate = useNavigate();
+  return (
+    <button
+      type="button"
+      className=" w-20 h-10 text-black bg-slate-200 hover:bg-blue-200 rounded-md
+                                shadow-2xl"
+      onClick={() => {
+        navigate(`/authentication/${'signin'}`);
+      }}
+    >
+      Sign In
+    </button>
+  );
 }
