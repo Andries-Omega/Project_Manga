@@ -15,22 +15,25 @@ export default function BurgerMenu() {
 
   return (
     <div
-      className="grid gap-2 place-content-end w-10 overflow-x-hidden"
+      role="button"
+      tabIndex={0}
+      className="grid overflow-x-hidden gap-2 place-content-end w-10"
       onClick={() => {
         dispatch(setMobileBurger(!burgerOpen));
       }}
+      aria-hidden="true"
     >
       <div
         className={`border-[1px] 
         ${darkMode ? "border-white" : "border-black"} ${
           burgerOpen ? "w-6 rotate-45 translate-y-1" : "w-7"
         }  duration-500`}
-      ></div>
+      />
       <div
         className={`border-[1px] ${
           darkMode ? "border-white" : "border-black"
         } w-6 ml-1 duration-500 ${burgerOpen ? "hidden" : ""}`}
-      ></div>
+      />
       <div
         className={
           burgerOpen
@@ -41,7 +44,7 @@ export default function BurgerMenu() {
                 darkMode ? "border-white" : "border-black"
               } w-7 duration-700`
         }
-      ></div>
+      />
       <div
         className={
           burgerOpen
@@ -75,7 +78,7 @@ export default function BurgerMenu() {
             className={`fa-solid fa-arrow-right-to-bracket text-${
               darkMode ? "white" : "black"
             }`}
-          ></i>
+          />
           <h1
             className={`
                ${darkMode ? "text-white" : ""} "text-lg  font-mono`}
@@ -90,7 +93,7 @@ export default function BurgerMenu() {
         >
           <i
             className={`fa-solid fa-user-plus ${darkMode ? "text-white" : ""}`}
-          ></i>
+          />
           <h1
             className={`
              ${darkMode ? "text-white" : ""} "text-lg  font-mono`}

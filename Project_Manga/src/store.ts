@@ -1,11 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import globalStateReducer from "./Common/GlobalStateStore/GlobaStore";
-import homeMangasReducer from "./Home/Mangas_Store/HomeManga";
-
+import { configureStore } from '@reduxjs/toolkit';
+import globalStateReducer from './Common/GlobalStateStore/GlobaStore';
+import mangaReadingReducer from './MangaReading/ReadingManga_Store/ReadingManga_Store';
+import authenticatorReducer from './Authentication/Auth_Store/auth_store';
 export const store = configureStore({
   reducer: {
-    homeMangas: homeMangasReducer,
     globalState: globalStateReducer,
+    mangaReadingState: mangaReadingReducer,
+    autheticationState: authenticatorReducer,
   },
 });
 
